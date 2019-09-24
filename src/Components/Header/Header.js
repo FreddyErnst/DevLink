@@ -1,0 +1,69 @@
+import React from 'react'
+import {Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
+import {connect} from "react-redux"
+import {logOutEmployer, logOutDev} from '../../redux/reducers/loginReducer'
+
+class Header extends React.Component {
+    constructor() {
+        super()
+    }
+    handleDevLogOut = () => {
+        this.props.logOutDev()
+        this.props.history.push('/')
+    }
+    handleEmployerLogOut = () => {
+        this.props.logOutEmployer()
+        this.props.history.push('/')
+    }
+    render() {
+        console.log(this.props)
+        return (
+            <div className="Header-main">
+                <div className="Header-container">
+                <img src = "https://i.imgur.com/6g4Ejcv.png" className = "imgD"/>
+                
+                </div>
+                <div className='Greeting'>
+                {this.props.employer.firstname ? <h2 className='name'>Welcome {this.props.employer.firstname} {this.props.employer.lastname}</h2> :null} 
+            
+                {this.props.developer.firstname ? <h2 className='name'>Welcome {this.props.developer.firstname} {this.props.developer.lastname} </h2> :null}
+                </div>
+                <div>
+                
+                    <ul className="Header-list">
+                    
+            
+                        <Link>
+                        <li>Dashboard</li>
+                        </Link>
+                        <Link>
+                        <li>Skills</li>
+                        </Link>
+                        <Link>
+                        <li>Profile</li>
+                        </Link>
+                        {this.props.developer.username ? <button onClick={this.handleDevLogOut}>LogOut</button> : null }
+                        {this.props.employer.username ? <button onClick={this.handleEmployerLogOut}>LogOut</button> : null }
+                        
+                        
+                        
+                    </ul>
+    
+                </div>
+            </div>
+        )
+    }
+    
+}
+
+const mapStateToProps = reduxState => {
+    return {
+        developer: reduxState.loginReducer.developer,
+        employer: reduxState.loginReducer.employer
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {
+    logOutDev, logOutEmployer
+})(Header))

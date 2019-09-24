@@ -1,0 +1,34 @@
+.EmployerForm  {
+    display: flex;
+    /* flex-direction: column; */
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://wallpaperaccess.com/full/279937.png');
+    font-family: 'Nanum Gothic Coding', monospace;
+    
+
+    
+
+    
+    
+}
+
+.EmployerMenus {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.employerInput {
+    height: 80px;
+    width: 300px;
+}
+
+
