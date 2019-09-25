@@ -34,15 +34,16 @@ class Header extends React.Component {
                     <ul className="Header-list">
                     
             
-                        <Link>
-                        <li>Dashboard</li>
-                        </Link>
-                        <Link>
-                        <li>Skills</li>
-                        </Link>
-                        <Link>
-                        <li>Profile</li>
-                        </Link>
+                        {this.props.employer.firstname ? <Link to='/EmployeeDashboard' style={{  color: 'white' }}><li>Dashboard</li></Link> : null}
+                        {this.props.developer.firstname ? <Link to='/DevDashboard' style={{  color: 'white' }}><li>Dashboard</li></Link> : null}
+
+                        {this.props.employer.firstname ? <Link to='/EmployeeForm' style={{  color: 'white' }}><li>Skills</li></Link> : null}
+                        {this.props.developer.firstname ? <Link to='/DevForm' style={{  color: 'white' }}><li>Skills</li></Link> : null}
+
+                        {this.props.employer.firstname ? <Link to='/EmployerProfile' style={{  color: 'white' }}><li>Profile</li></Link> : null}
+                        {this.props.developer.firstname ? <Link to='/DevProfile' style={{  color: 'white' }}><li>Profile</li></Link> : null}
+
+                
                         {this.props.developer.username ? <button onClick={this.handleDevLogOut}>LogOut</button> : null }
                         {this.props.employer.username ? <button onClick={this.handleEmployerLogOut}>LogOut</button> : null }
                         

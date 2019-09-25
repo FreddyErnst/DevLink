@@ -6,6 +6,7 @@ const session = require('express-session')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 const authController = require('./controllers/authController')
 const Devcontroller = require('./controllers/DevController')
+const EmployeeController = require('./controllers/EmployeeController')
 
 app.use(express.json())
 
@@ -35,7 +36,14 @@ app.post('/auth/loginEmployer', authController.loginEmployer)
 app.post('/auth/logoutEmployer', authController.logoutEmployer)
 
 // Developer Posts
-// app.get('/api/devposts', Devcontroller.getDevPosts)
+app.get('/api/devposts/', Devcontroller.getDevPosts)
+app.get('/api/devposts/:tech_id', Devcontroller.getDevPost)
+app.post('/api/devposts/:tech_id', Devcontroller.devPost)
+
+
+// Employer Posts
+// app.get('/api/employerposts/:employertech_id', EmployeeController.getEmployerPosts)
+app.post('/api/employerposts/:employertech_id', EmployeeController.employerPost)
 
 
 app.listen(SERVER_PORT, () => {
