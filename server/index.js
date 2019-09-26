@@ -38,12 +38,13 @@ app.post('/auth/logoutEmployer', authController.logoutEmployer)
 // Developer Posts
 app.get('/api/devposts/', Devcontroller.getDevPosts)
 app.get('/api/devposts/:tech_id', Devcontroller.getDevPost)
-app.post('/api/devposts/:tech_id', Devcontroller.devPost)
+app.post('/api/devposts/', Devcontroller.devPost)
 
 
 // Employer Posts
-// app.get('/api/employerposts/:employertech_id', EmployeeController.getEmployerPosts)
-app.post('/api/employerposts/:employertech_id', EmployeeController.employerPost)
+app.get('/api/employerposts/', EmployeeController.getEmployerPosts)
+app.get('/api/employerposts/:employertech_id', EmployeeController.getEmployerPost)
+app.post('/api/employerposts/', EmployeeController.employerPost)
 
 
 app.listen(SERVER_PORT, () => {

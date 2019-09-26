@@ -1,18 +1,48 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import {updateEmployerForm} from '../../redux/reducers/employerFormReducer'
+import {connect} from 'react-redux'
 
-export default class EmployeeForm extends Component {
+class EmployeeForm extends Component {
     constructor() {
         super()
         this.state = {
-            language: '',
-            style: '',
-            backend: '',
-            database: '',
+            skill1: '',
+            skill2: '',
+            skill3: '',
+            skill4: '',
             experience: '',
             length: '',
-            bio: ''
+            bio: '',
+            state: ''
         }
+    }
+
+    handleEmployerForm = () => {
+        this.props.updateEmployerForm(this.state)
+    }
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+            
+        })
+    
+    }
+
+    clear = () => {
+        this.setState({
+            skill1: '',
+            skill2: '',
+            skill3: '',
+            skill4: '',
+            experience: '',
+            length: '',
+            bio: '',
+            state: ''
+        })
+    }
+
+    handleSubmit() {
     }
     render() {
         return (
@@ -22,7 +52,7 @@ export default class EmployeeForm extends Component {
                     <h2>Go to <Link to='/EmployeeDashboard'>Dashboard</Link></h2>
 
                     <h4>Please select a language</h4>
-                    <select className="Language">
+                    <select className="Language" name="skill1" onChange={this.handleChange}>
                         <option></option>
                         <option value="React">React</option>
                         <option value="Python">Python</option>
@@ -33,7 +63,7 @@ export default class EmployeeForm extends Component {
                         <option value="Java">Java</option>
                     </select>
                     <h4>Please select a style</h4>
-                    <select>
+                    <select name="skill2" onChange={this.handleChange}>
                         <option></option>
                         <option value="Sass">Sass</option>
                         <option value="Flex">Flex</option>
@@ -44,7 +74,7 @@ export default class EmployeeForm extends Component {
                         <option value="Tailwind">Tailwind</option>
                     </select>
                     <h4>Backend Language</h4>
-                    <select>
+                    <select name="skill3" onChange={this.handleChange}>
                         <option></option>
                         <option value="Nodejs">NodeJS</option>
                         <option value="Ruby">Ruby</option>
@@ -52,14 +82,14 @@ export default class EmployeeForm extends Component {
                         <option value="Java">Java</option>
                     </select>
                     <h4>Database Language</h4>
-                    <select>
+                    <select name="skill4" onChange={this.handleChange}>
                         <option></option>
-                        <option value="sql">SQL</option>
+                        <option value="SQL">SQL</option>
                         <option value="mongoDB">MongoDB</option>
                         <option value="oracle">Oracle</option>
                     </select>
                     <h4>Experience Coding</h4>
-                    <select>
+                    <select name="experience" onChange={this.handleChange}>
                         <option></option>
                         <option value="6months">0-6 Months</option>
                         <option value="1 Year">1 Year</option>
@@ -68,14 +98,14 @@ export default class EmployeeForm extends Component {
 
                     </select>
                     <h4>Length of job</h4>
-                    <select>
+                    <select name="length" onChange={this.handleChange}>
                         <option></option>
                         <option value="Short-Term">Short-term</option>
                         <option value="Long-Term">Long-term</option>
 
                     </select>
                     <h4>Please enter your state</h4>
-                    <select>
+                    <select name="state" onChange={this.handleChange}>
                         <option></option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -129,12 +159,13 @@ export default class EmployeeForm extends Component {
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
                     </select>
-
+            
                     <div>
                         <h3>Enter bio</h3>
-                        <input className='employerInput' placeholder="Bio"></input>
+                        <input className='employerInput' placeholder="Bio" name="bio" onChange={this.handleChange}></input>
                     </div>
-                    <button>Submit</button>
+                    <button type="submit" onClick={this.handleEmployerForm}>Submit</button>
+                    {console.log(this.state)}
                 </div>
 
             </div>
@@ -142,4 +173,7 @@ export default class EmployeeForm extends Component {
     }
 }
 
+export default connect(null, {
+    updateEmployerForm
+})(EmployeeForm)
 

@@ -1,11 +1,11 @@
 module.exports = {
-    getEmployerPosts: (req, res) => {
+    getEmployerPosts: async (req, res) => {
         const db = req.app.get('db')
         const employerPosts = await db.getEmployerPosts()
         res.status(200).json(employerPosts)
     },
 
-    getEmployerPost: (req, res) => {
+    getEmployerPost: async (req, res) => {
         const db = req.app.get('db')
         const {employertech_id} = req.params
         const employerPostById = await db.getEmployerPostById(employertech_id)
@@ -13,10 +13,10 @@ module.exports = {
     },
 
     employerPost: async (req, res) => {
-        const {skill1, skill2, skill3, skill4, experience, joblength, bio} = req.body
-        const {employertech_id} = req.params
+        const {skill1, skill2, skill3, skill4, experience, length, bio, state} = req.body
+    
         const db = req.app.get('db')
-        const employerPost = await db.addEmployerPost(skill1, skill2, skill3, skill4, experience, joblength, bio, employertech_id)
+        const employerPost = await db.addEmployerPost(skill1, skill2, skill3, skill4, experience, length, bio, state)
         res.status(200).json(employerPost)
     },
 

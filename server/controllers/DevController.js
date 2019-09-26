@@ -13,15 +13,15 @@ module.exports = {
     },
 
     devPost: async (req, res) => {
-        const {skill1, skill2, skill3, skill4, experience, joblength, bio} = req.body
-        const {tech_id} = req.params
+        const {skill1, skill2, skill3, skill4, experience, length, bio, state} = req.body
+        console.log(req.body)
         const db = req.app.get('db')
-        const devPost = await db.addDevPost(skill1, skill2, skill3, skill4, experience, joblength, bio, tech_id)
+        const devPost = await db.addDevPost(skill1, skill2, skill3, skill4, experience, length, bio, state)
         res.status(200).json(devPost)
     },
 
     editDevPost: (req, res) => {
-        
+
 
     },
 

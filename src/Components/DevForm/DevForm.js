@@ -1,8 +1,52 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import { NONAME } from 'dns';
+import {connect} from 'react-redux'
+import {updateDevForm} from '../../redux/reducers/devFormReducer'
 
-export default class DevForm extends Component {
+class DevForm extends Component {
+    constructor() {
+        super()
+        this.state = {
+            skill1: '',
+            skill2: '',
+            skill3: '',
+            skill4: '',
+            experience: '',
+            length: '',
+            bio: '',
+            state: ''
+        }
+    }
+
+    handleDevFormSubmit = () => {
+        this.props.updateDevForm(this.state)
+    }
+
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+            
+        })
+    
+    }
+
+    clear = () => {
+        this.setState({
+            skill1: '',
+            skill2: '',
+            skill3: '',
+            skill4: '',
+            experience: '',
+            length: '',
+            bio: '',
+            state: ''
+        })
+    }
+
+    handleSubmit() {
+
+
+    }
     render() {
         return (
             <div className="DevForm">
@@ -11,18 +55,19 @@ export default class DevForm extends Component {
                 <h2>Go to <Link to ='/DevDashboard' style={{  color: 'white' }}>Dashboard</Link></h2>
                 
                 <h4>Please select a language</h4>
-            <select>
-                <option> </option>
-                <option value="React">React</option>
-                <option value="Python">Python</option>
-                <option value="Angular">Angular</option>
-                <option value="Ruby">Ruby</option>
-                <option value="C++">C++</option>
-                <option value="Javascript">Javascript</option>
+            <select onChange={this.handleChange} name='skill1' defaultValue='Select Language'>
+                
+                <option value="React" >React</option>
+                <option value="Python" >Python</option>
+                <option value="Angular" >Angular</option>
+                <option value="Ruby" >Ruby</option>
+                <option value="C++" >C++</option>
+                <option value="Javascript" >Javascript</option>
                 <option value="Java">Java</option>
+        
             </select>
             <h4>Please select a style</h4>
-            <select>
+            <select onChange={this.handleChange} name="skill2">
                 <option></option>   
                 <option value="Sass">Sass</option>
                 <option value="Flex">Flex</option>
@@ -33,7 +78,7 @@ export default class DevForm extends Component {
                 <option value="Tailwind">Tailwind</option>
             </select>
             <h4>Please select Backend Language</h4>
-            <select>
+            <select onChange={this.handleChange} name='skill3'>
                 <option></option>
                 <option value="Nodejs">NodeJS</option>
                 <option value="Ruby">Ruby</option>
@@ -41,14 +86,14 @@ export default class DevForm extends Component {
                 <option value="Java">Java</option>
             </select>
             <h4>Please select Database Language</h4>
-            <select>
+            <select onChange={this.handleChange} name='skill4'>
                 <option></option>
                 <option value="sql">SQL</option>
                 <option value="mongoDB">MongoDB</option>
                 <option value="oracle">Oracle</option>
             </select>
             <h4>How much Experience do you have?</h4>
-            <select>
+            <select onChange={this.handleChange} name='experience'>
                 <option></option>
                 <option value="6months">0-6 Months</option>
                 <option value="1 Year">1 Year</option>
@@ -57,13 +102,13 @@ export default class DevForm extends Component {
                 
             </select>
             <h4>Length of job</h4>
-            <select>
+            <select onChange={this.handleChange} name='length'>
                 <option></option>
                 <option value="Short-term">Short-term</option>
                 <option value="Short-term">Long-term</option>
             </select>
             <h4>Please enter your state</h4>
-                    <select>
+                    <select onChange={this.handleChange} name='state'>
                         <option></option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -116,15 +161,22 @@ export default class DevForm extends Component {
                         <option value="WV">West Virginia</option>
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
+                        
                     </select>
+                    {console.log(this.state)}
+                    
             <div>
                 <h3>Enter bio</h3>
-                <input className='employerInput' placeholder="Bio"></input>
+                <input className='employerInput' placeholder="Bio" name='bio' onChange={this.handleChange}></input>
             </div>
-            <button>Submit</button>
+            <button type='submit' onClick={this.handleDevFormSubmit}>Submit</button>
+            <button onClick={this.clear}>Clear</button>
             
             </div>
             </div>
         )
     }
 }
+export default connect(null, {
+    updateDevForm
+})(DevForm)
