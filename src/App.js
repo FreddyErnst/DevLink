@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import "./Components/Header/Header.css"
 import "./Components/EmployeeForm/EmployeeForm.css"
 import "./Components/DevForm/DevForm.css"
+import "./Components/DevProfile/DevProfile.css"
 
 import routes from './routes';
 

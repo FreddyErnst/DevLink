@@ -1,0 +1,35 @@
+/* .ProfileContainer, {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    /* background-image: url('http://www.4usky.com/data/out/9/164051696-battery-wallpapers.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    
+    /* background-position-y: 120%; */
+    
+
+/* }  */
+
+h2 {
+    margin: 0;
+}
+
+.DevProfileContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ProfileContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {updateDeveloper, updateEmployer} from '../../redux/reducers/loginReducer'
 
 
+
 export class Landing extends Component {
     constructor() {
         super()
@@ -14,8 +15,8 @@ export class Landing extends Component {
             email: '',
             username: '',
             password: '',
-            isDeveloper: null,
-            isEmployer: null,
+            isDeveloper: false,
+            isEmployer: false,
             didClick: false,
             shouldRedirect: false
         }
@@ -24,8 +25,9 @@ export class Landing extends Component {
         const {username, password} = this.state
         if(username === '' && password === '') {
             this.setState({didClick: true})
+            alert('Please login')
         } else {
-            axios.post('/auth/loginDev', {username,password})
+            axios.post('/auth/loginDev', {username, password})
             .then(response => {
                 this.props.updateDeveloper(response.data)
                 console.log(response.data)
@@ -41,16 +43,16 @@ export class Landing extends Component {
         console.log(username, password)
         if(username === '' && password === '') {
             this.setState({didClick: true})
-            console.log('work')
+            alert('Please login')
         } else {
-            axios.post('/auth/loginEmployer', {username,password})
+            axios.post('/auth/loginEmployer', {username, password})
             .then(response => {
                 this.props.updateEmployer(response.data)
                 console.log(response.data)
                 this.setState({shouldRedirect: true, isEmployer: true})
             })
             .catch(error => console.log(error))
-        }
+        } 
 
     }
 
@@ -73,6 +75,8 @@ export class Landing extends Component {
                 })
             })
             .catch(error => console.log(error))
+        } else {
+            alert ('Please Register an account')
         }
 
     }
@@ -90,6 +94,8 @@ export class Landing extends Component {
                 })
             })
             .catch(error => console.log(error))
+        } else {
+            alert ('Please Register an account')
         }
 
 

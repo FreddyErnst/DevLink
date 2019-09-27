@@ -25,9 +25,9 @@ class Header extends React.Component {
                 
                 </div>
                 <div className='Greeting'>
-                {this.props.employer.firstname ? <h2 className='name'>Welcome {this.props.employer.firstname} {this.props.employer.lastname}</h2> :null} 
+                {this.props.employer.firstname ? <h2 className='name'>Welcome {this.props.employer.username}</h2> :null} 
             
-                {this.props.developer.firstname ? <h2 className='name'>Welcome {this.props.developer.firstname} {this.props.developer.lastname} </h2> :null}
+                {this.props.developer.firstname ? <h2 className='name'>Welcome {this.props.developer.username}</h2> :null}
                 </div>
                 <div>
                 
@@ -46,6 +46,10 @@ class Header extends React.Component {
                 
                         {this.props.developer.username ? <button onClick={this.handleDevLogOut}>LogOut</button> : null }
                         {this.props.employer.username ? <button onClick={this.handleEmployerLogOut}>LogOut</button> : null }
+
+                    
+
+                    
                         
                         
                         

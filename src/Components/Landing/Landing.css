@@ -16,12 +16,10 @@
     height: 90vh;
     width: 100vw;
     background-image: url('https://birchtree.nyc3.digitaloceanspaces.com/images/wwdc18/dev-black.png');
-    background-size: 100%;
-    background-position-y: center;
-    /* background-attachment: fixed; */
-    font-family: 'Nanum Gothic Coding', monospace;
-    background-repeat: unset;
-    
+     background-size: cover;
+     background-position: center center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
 }
 
 .DevLogin, .EmployeeLogin {

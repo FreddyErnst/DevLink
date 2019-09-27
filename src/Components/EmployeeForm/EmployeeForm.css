@@ -9,6 +9,11 @@
     height: 100%;
     width: 100%;
     background-image: url('https://wallpaperaccess.com/full/279937.png');
+    /* background-image: url('https://media.discordapp.net/attachments/338942776307744770/626978425457999883/Untitled-1.png?width=1797&height=1124'); */
+    /* background-size: cover; */
+    /* background-position: center center; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: 'Nanum Gothic Coding', monospace;
     
 

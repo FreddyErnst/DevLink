@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
-import {updateEmployerForm} from '../../redux/reducers/employerFormReducer'
+import {updateEmployerForm, addEmployerForm} from '../../redux/reducers/employerFormReducer'
 import {connect} from 'react-redux'
 
 class EmployeeForm extends Component {
@@ -19,6 +19,10 @@ class EmployeeForm extends Component {
     }
 
     handleEmployerForm = () => {
+        this.props.addEmployerForm(this.state)
+    }
+
+    handleEmployerFormUpdate = () => {
         this.props.updateEmployerForm(this.state)
     }
     handleChange = e => {
@@ -165,6 +169,7 @@ class EmployeeForm extends Component {
                         <input className='employerInput' placeholder="Bio" name="bio" onChange={this.handleChange}></input>
                     </div>
                     <button type="submit" onClick={this.handleEmployerForm}>Submit</button>
+                    <button type='submit' onClick={this.handleEmployerFormUpdate}>Update</button>
                     {console.log(this.state)}
                 </div>
 
@@ -174,6 +179,6 @@ class EmployeeForm extends Component {
 }
 
 export default connect(null, {
-    updateEmployerForm
+    updateEmployerForm, addEmployerForm
 })(EmployeeForm)
 

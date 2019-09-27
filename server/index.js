@@ -37,15 +37,26 @@ app.post('/auth/logoutEmployer', authController.logoutEmployer)
 
 // Developer Posts
 app.get('/api/devposts/', Devcontroller.getDevPosts)
-app.get('/api/devposts/:tech_id', Devcontroller.getDevPost)
+app.get('/api/devpost/', Devcontroller.getDevPost)
 app.post('/api/devposts/', Devcontroller.devPost)
+app.put('/api/devposts/', Devcontroller.updateDevForm)
 
 
 // Employer Posts
 app.get('/api/employerposts/', EmployeeController.getEmployerPosts)
 app.get('/api/employerposts/:employertech_id', EmployeeController.getEmployerPost)
 app.post('/api/employerposts/', EmployeeController.employerPost)
+app.put('/api/employerposts', EmployeeController.updateEmployerForm)
 
+// Dev Profile
+app.put('/api/developer/username', Devcontroller.editDevUsername)
+app.put('/api/developer/email', Devcontroller.editDevEmail)
+app.delete('/auth/developer/', Devcontroller.deleteDeveloper)
+
+//Employer Profile
+app.put('/api/employer/username', EmployeeController.editEmployerUsername)
+app.put('/api/employer/email', EmployeeController.editEmployerEmail)
+app.delete('/auth/employer', EmployeeController.deleteEmployer)
 
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on ${SERVER_PORT}`)

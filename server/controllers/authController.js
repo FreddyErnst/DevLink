@@ -23,7 +23,7 @@ module.exports = {
             const newDev = await db.registerDev(username, hash, firstname, lastname, email)
 
             req.session.developer = {
-                developerid: newDev[0].developer_id,
+                developer_id: newDev[0].developer_id,
                 username: newDev[0].username,
                 firstname: newDev[0].firstname,
                 lastname: newDev[0].lastname,
@@ -41,24 +41,28 @@ module.exports = {
         const devExists = await db.checkForDev(username)
 
         if (!devExists[0]) {
+            console.log('No username found')
             res.status(403).json("Username or Password incorrect")
         } else {
-            const salt = bcrypt.genSaltSync(10)
-            const hash = bcrypt.hashSync(password, salt)
+            console.log(devExists[0])
+            const hash = devExists[0].password
             const isAuthenticated = bcrypt.compareSync(password, hash)
 
             if(!isAuthenticated) {
+                console.log('User found but password incorrect')
                 res.status(403).json("Username or Password incorrect")
             } else {
+                console.log('User found and password correct')
                 req.session.developer = {
-                    developerid: devExists[0].developer_id,
+                    developer_id: devExists[0].developer_id,
                     username: devExists[0].username,
                     firstname: devExists[0].firstname,
                     lastname: devExists[0].lastname,
                     email: devExists[0].email
                 }
+                res.status(200).json(req.session.developer)
             }
-            res.status(200).json(req.session.developer)
+            
         }
 
 
@@ -90,7 +94,7 @@ module.exports = {
 
             const newEmployer = await db.registerEmployer(username, hash, firstname, lastname, email)
 
-            req.session.developer = {
+            req.session.employer = {
                 employer_id: newEmployer[0].employer_id,
                 username: newEmployer[0].username,
                 firstname: newEmployer[0].firstname,
@@ -111,8 +115,7 @@ module.exports = {
         if (!employerExists[0]) {
             res.status(403).json("Username or Password incorrect")
         } else {
-            const salt = bcrypt.genSaltSync(10)
-            const hash = bcrypt.hashSync(password, salt)
+            const hash = employerExists[0].password
             const isAuthenticated = bcrypt.compareSync(password, hash)
 
             if(!isAuthenticated) {
@@ -125,8 +128,9 @@ module.exports = {
                     lastname: employerExists[0].lastname,
                     email: employerExists[0].email
                 }
+                res.status(200).json(req.session.employer)
             }
-            res.status(200).json(req.session.employer)
+            
         }
 
 
