@@ -14,7 +14,8 @@ class DevForm extends Component {
             experience: '',
             length: '',
             bio: '',
-            state: ''
+            state: '',
+            skill1: ['Python', 'Ruby', 'Angular', 'React']
         }
     }
 
@@ -60,7 +61,7 @@ class DevForm extends Component {
                 <h2>Go to <Link to ='/DevDashboard' style={{  color: 'white' }}>Dashboard</Link></h2>
                 
                 <h4>Select your primary development language</h4>
-            <select onChange={this.handleChange} name='skill1' defaultValue='Select Language'>
+            {/* <select onChange={this.handleChange} name='skill1' defaultValue='Select Language'>
                 <option></option>
                 <option value="React" >React</option>
                 <option value="Python" >Python</option>
@@ -68,9 +69,15 @@ class DevForm extends Component {
                 <option value="Ruby" >Ruby</option>
                 <option value="C++" >C++</option>
                 <option value="Javascript" >Javascript</option>
-                <option value="Java">Java</option>
+                <option value="Java">Java</option> */}
+                {this.state.skill1.map((val) => {
+                    
+            return <select name='skill1'><option>{val}</option></select>
+                    
+                })}
+
         
-            </select>
+            {/* </select> */}
             <h4>Select your primary styling language</h4>
             <select onChange={this.handleChange} name="skill2">
                 <option></option>   
