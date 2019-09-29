@@ -44,7 +44,7 @@ app.put('/api/devposts/', Devcontroller.updateDevForm)
 
 // Employer Posts
 app.get('/api/employerposts/', EmployeeController.getEmployerPosts)
-app.get('/api/employerposts/:employertech_id', EmployeeController.getEmployerPost)
+app.get('/api/employerposts/', EmployeeController.getEmployerPost)
 app.post('/api/employerposts/', EmployeeController.employerPost)
 app.put('/api/employerposts', EmployeeController.updateEmployerForm)
 
@@ -57,6 +57,9 @@ app.delete('/auth/developer/', Devcontroller.deleteDeveloper)
 app.put('/api/employer/username', EmployeeController.editEmployerUsername)
 app.put('/api/employer/email', EmployeeController.editEmployerEmail)
 app.delete('/auth/employer', EmployeeController.deleteEmployer)
+
+//Dev Dashboard
+app.get('/api/Developers', Devcontroller.getDevs)
 
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on ${SERVER_PORT}`)

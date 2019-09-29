@@ -54,5 +54,11 @@ module.exports = {
 
     deleteDevPost: (req, res) => {
 
+    },
+
+    getDevs: async (req, res) => {
+    const db = req.app.get('db')
+    const getAllDevs = await db.getDevs()
+    res.status(200).json(getAllDevs)
     }
 }

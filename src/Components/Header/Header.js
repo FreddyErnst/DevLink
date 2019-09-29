@@ -29,7 +29,7 @@ class Header extends React.Component {
             
                 {this.props.developer.firstname ? <h2 className='name'>Welcome {this.props.developer.username}</h2> :null}
                 </div>
-                <div>
+                <div className="List-Container">
                 
                     <ul className="Header-list">
                     
@@ -44,15 +44,13 @@ class Header extends React.Component {
                         {this.props.developer.firstname ? <Link to='/DevProfile' style={{  color: 'white' }}><li>Profile</li></Link> : null}
 
                 
-                        {this.props.developer.username ? <button onClick={this.handleDevLogOut}>LogOut</button> : null }
+                        {this.props.developer.username ? <li><button onClick={this.handleDevLogOut}>LogOut</button></li> : null }
                         {this.props.employer.username ? <button onClick={this.handleEmployerLogOut}>LogOut</button> : null }
-
+                        
+                        <li className="Hamburger hidden-by-default"> 
+                            <img src = "https://library.kissclipart.com/20180830/oyw/kissclipart-hamburger-icon-white-clipart-hamburger-button-comp-867a6f7cf898addd.jpg" className='Hamburger-Button' alt="Hamburger-Button"/>
+                        </li>
                     
-
-                    
-                        
-                        
-                        
                     </ul>
     
                 </div>

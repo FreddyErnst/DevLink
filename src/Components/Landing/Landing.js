@@ -145,9 +145,10 @@ export class Landing extends Component {
                 onChange={this.handleChange}
                 
                 />
+                <div>
                 <button onClick={this.handleDevRegister}>Register</button>
                 <button onClick={this.handleDevLogin}>Login</button>
-                
+                </div>
             </div>
             <div className="EmployeeLogin">
                 <h1>Employer</h1>
@@ -186,8 +187,10 @@ export class Landing extends Component {
                 onChange={this.handleChange}
 
                 />
+                <div>
                 <button onClick={this.handleEmployerRegister}>Register</button>
                 <button onClick={this.handleEmployerLogin}>Login</button>
+                </div>
 
             </div>
             </div>

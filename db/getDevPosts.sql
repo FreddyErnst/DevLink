@@ -1,4 +1,4 @@
-SELECT * FROM developer
-inner join devtech
-ON developer.developer_id = devtech.developer_id
-WHERE skill1 = $1 or skill2 = $1 or skill3 = $1 or skill4 = $1;
+SELECT * FROM devtech
+INNER JOIN developer
+ON devtech.developer_id = developer.developer_id;
+

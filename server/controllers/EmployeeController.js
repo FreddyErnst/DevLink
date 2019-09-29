@@ -7,8 +7,8 @@ module.exports = {
 
     getEmployerPost: async (req, res) => {
         const db = req.app.get('db')
-        const {employertech_id} = req.params
-        const employerPostById = await db.getEmployerPostById(employertech_id)
+    
+        const employerPostById = await db.getEmployerPostById()
         res.status(200).json(employerPostById)
     },
 

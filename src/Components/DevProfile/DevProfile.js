@@ -51,7 +51,10 @@ class DevProfile extends Component {
         }
         return (
             <div className='DevProfileContainer'>
+                <div className="Dev-Profile-Picture"><img src='https://pl.scdn.co/images/pl/default/a15be9bea5c27c3dd853b03b31e1951047c82810'/></div>
+                <button>Edit Profile Picture</button>
                 <div className='ProfileContainer'>
+                    {/* <div className="Dev-Profile-Picture"></div> */}
                     <form onSubmit={this.handleSubmit}>
                     <h2>Change Username:</h2>
                     <input onChange={this.handleChange} name="username"/>
