@@ -11,7 +11,16 @@ const UPDATE_EMPLOYER = "UPDATE_EMPLOYER"
 const LOGOUT_DEV = "LOGOUT_DEV"
 const LOGOUT_EMPLOYER = "LOGOUT_EMPLOYER"
 const DELETE_DEVELOPER_ACCOUNT = "DELETE_DEVELOPER_ACCOUNT"
+// const ADD_PROFILE_PICTURE = "ADD_PROFILE_PICTURE"
 
+
+// export function addProfilePicture(developer) {
+//     Axios.post('/api/developer/picture')
+//     return {
+//         type: ADD_PROFILE_PICTURE,
+//         payload: developer
+//     }
+// }
 export function updateDeveloper(developer) {
     return {
         type: UPDATE_DEVELOPER,
@@ -79,6 +88,11 @@ export default function reducer (state=initialState, action) {
                 developer: {}
                 
             }
+            // case ADD_PROFILE_PICTURE: 
+            // return {
+            //     ...state,
+            //     developer: action.payload
+            // }
         default: return state;
     }
 }

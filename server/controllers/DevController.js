@@ -60,5 +60,15 @@ module.exports = {
     const db = req.app.get('db')
     const getAllDevs = await db.getDevs()
     res.status(200).json(getAllDevs)
+    },
+
+    addDevPicture: async (req, res) => {
+        const db = req.app.get('db')
+        const {profilepic} = req.body
+        const {developer_id} = req.session.developer
+        console.log(developer_id)
+        console.log(profilepic)
+        const addPicture = await db.addDevProfilePicture(profilepic, developer_id)
+        res.status(200).json(addPicture)
     }
 }

@@ -52,6 +52,7 @@ app.put('/api/employerposts', EmployeeController.updateEmployerForm)
 app.put('/api/developer/username', Devcontroller.editDevUsername)
 app.put('/api/developer/email', Devcontroller.editDevEmail)
 app.delete('/auth/developer/', Devcontroller.deleteDeveloper)
+app.post('/api/developer/picture', Devcontroller.addDevPicture)
 
 //Employer Profile
 app.put('/api/employer/username', EmployeeController.editEmployerUsername)

@@ -3,6 +3,7 @@ import { updateDeveloperUsername, updateDeveloperEmail } from '../../redux/reduc
 import {deleteDeveloperAccount} from '../../redux/reducers/loginReducer'
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom'
+import Axios from 'axios';
 
 class DevProfile extends Component {
     constructor() {
@@ -10,7 +11,8 @@ class DevProfile extends Component {
         this.state = {
             username: '',
             email: '',
-            accountDeleted: false
+            accountDeleted: false,
+            profilepic: ''
 
 
         }
@@ -41,9 +43,18 @@ class DevProfile extends Component {
     }
 
     handleChange = e => {
+    console.log(e.target.value)
     this.setState({
         [e.target.name]: e.target.value
     }) 
+    }
+
+    addPicture = () => {
+    
+        Axios.post('/api/developer/picture', {
+            profilepic: this.state.profilepic
+        })
+        alert('Photo updated!')
     }
     render() {
         if (this.state.accountDeleted === true) {
@@ -52,7 +63,10 @@ class DevProfile extends Component {
         return (
             <div className='DevProfileContainer'>
                 <div className="Dev-Profile-Picture"><img src='https://pl.scdn.co/images/pl/default/a15be9bea5c27c3dd853b03b31e1951047c82810'/></div>
-                <button>Edit Profile Picture</button>
+                <form onSubmit={this.handleSubmit}>
+                <input name='profilepic' onChange={this.handleChange} placeholder="Insert url" />
+        
+                <button onClick={this.addPicture}>Add Profile Picture</button>
                 <div className='ProfileContainer'>
                     {/* <div className="Dev-Profile-Picture"></div> */}
                     <form onSubmit={this.handleSubmit}>
@@ -63,7 +77,7 @@ class DevProfile extends Component {
                     <h2>Update Email:</h2>
                     <input name="email" onChange={this.handleChange}/>
                     <button type='submit' onClick={this.editDeveloperEmail}>Submit Email</button>
-                    
+                    {console.log(this.state)}
                     
                     </form>
                     
@@ -73,7 +87,9 @@ class DevProfile extends Component {
                     <button onClick={this.deleteAccount}>Delete</button>
 
                 </div>
+                </form>
             </div>
+           
         )
     }
 }

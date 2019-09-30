@@ -27,7 +27,7 @@ export default class DevDashboard extends Component {
                 {this.state.employerPost ? this.state.employerPost.map((val, index) => {
                     return <div className="EmployerPost">
                         <h1>{val.firstname} {val.lastname}</h1>
-                        <div className='EmployerImg'><img src='https://static-cdn.jtvnw.net/jtv_user_pictures/c37f21b1-5b33-4750-9cbc-dd3ebfdd7739-profile_image-300x300.png'/></div>
+                        <div className='EmployerImg'><img src={val.profilepic}/></div>
                         <h2>Primary Language: {val.skill1}</h2>
                         <h2>Styling Language: {val.skill2}</h2>
                         <h2>Database language: {val.skill3}</h2>
