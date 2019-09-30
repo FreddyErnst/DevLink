@@ -58,8 +58,10 @@ app.put('/api/employer/username', EmployeeController.editEmployerUsername)
 app.put('/api/employer/email', EmployeeController.editEmployerEmail)
 app.delete('/auth/employer', EmployeeController.deleteEmployer)
 
-//Dev Dashboard
+//Employer Dashboard
 app.get('/api/Developers', Devcontroller.getDevs)
+//Dev Dashboard
+// app.get('/api/Employers', EmployeeController.getEmployers)
 
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on ${SERVER_PORT}`)

@@ -1,4 +1,4 @@
-.EmployerPost {
+.DevPost {
     display: flex;
     
     flex-direction: column;
@@ -14,18 +14,18 @@
 
 }
 
-.EmployerPostContainer {
+.DevPostContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: black;
     color: white;
-    /* height: 100vh; */
+    height: 100vh;
     
 }
 
-.EmployerImg {
+.DevImg {
     display: flex;
     justify-content: flex-start;
     height: 25vh;

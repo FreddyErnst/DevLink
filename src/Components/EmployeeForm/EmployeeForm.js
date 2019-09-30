@@ -63,7 +63,7 @@ class EmployeeForm extends Component {
             <div className="EmployerForm">
 
                 <div className="EmployerMenus">
-                    <h2>Go to <Link to='/EmployeeDashboard'>Dashboard</Link></h2>
+                    <h2>Go to <Link to='/EmployerDashboard'>Dashboard</Link></h2>
 
                     <h4>Select your wanted primary development language</h4>
                     <select onChange={this.handleChange} name='skill1'>

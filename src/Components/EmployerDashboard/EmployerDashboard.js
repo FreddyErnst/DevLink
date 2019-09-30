@@ -1,19 +1,20 @@
+
 import React, { Component } from 'react'
 import Axios from 'axios';
 
-export default class DevDashboard extends Component {
+export default class EmployerDashboard extends Component {
     constructor() {
         super()
         this.state = {
-            employerPost: [],
+            devPost: [],
             // developer: []
 
         }
     }
     componentDidMount() {
-        Axios.get('/api/employerposts').then((response) => {
+        Axios.get('/api/devposts').then((response) => {
             this.setState({
-                employerPost: response.data
+                devPost: response.data
             })
         })
         
@@ -21,13 +22,13 @@ export default class DevDashboard extends Component {
 
     render() {
         return (
-            <div className="EmployerPostContainer">
-                <h1>Employers Seeking to Hire</h1>
+            <div className="DevPostContainer">
+                <h1>Developers Seeking Jobs</h1>
                 <input placeholder='Search by location'/>
-                {this.state.employerPost ? this.state.employerPost.map((val, index) => {
-                    return <div className="EmployerPost">
+                {this.state.devPost ? this.state.devPost.map((val, index) => {
+                    return <div className="DevPost">
                         <h1>{val.firstname} {val.lastname}</h1>
-                        <div className='EmployerImg'><img src='https://static-cdn.jtvnw.net/jtv_user_pictures/c37f21b1-5b33-4750-9cbc-dd3ebfdd7739-profile_image-300x300.png'/></div>
+                        <div className='DevImg'><img src='https://static-cdn.jtvnw.net/jtv_user_pictures/c37f21b1-5b33-4750-9cbc-dd3ebfdd7739-profile_image-300x300.png'/></div>
                         <h2>Primary Language: {val.skill1}</h2>
                         <h2>Styling Language: {val.skill2}</h2>
                         <h2>Database language: {val.skill3}</h2>
@@ -44,3 +45,4 @@ export default class DevDashboard extends Component {
         )
     }
 }
+

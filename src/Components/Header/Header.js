@@ -34,7 +34,7 @@ class Header extends React.Component {
                     <ul className="Header-list">
                     
             
-                        {this.props.employer.firstname ? <Link to='/EmployeeDashboard' style={{  color: 'white' }}><li>Dashboard</li></Link> : null}
+                        {this.props.employer.firstname ? <Link to='/EmployerDashboard' style={{  color: 'white' }}><li>Dashboard</li></Link> : null}
                         {this.props.developer.firstname ? <Link to='/DevDashboard' style={{  color: 'white' }}><li>Dashboard</li></Link> : null}
 
                         {this.props.employer.firstname ? <Link to='/EmployeeForm' style={{  color: 'white' }}><li>Skills</li></Link> : null}

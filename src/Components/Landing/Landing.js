@@ -18,7 +18,8 @@ export class Landing extends Component {
             isDeveloper: false,
             isEmployer: false,
             didClick: false,
-            shouldRedirect: false
+            shouldRedirect: false,
+            clickedRegister: false
         }
     }
     handleDevLogin = () => {
@@ -97,8 +98,12 @@ export class Landing extends Component {
         } else {
             alert ('Please Register an account')
         }
+    }
 
-
+    clickedRegister = () => {
+        this.setState({
+            clickedRegister: true
+        })
     }
     render() {
         if(this.state.shouldRedirect === true && this.state.isDeveloper === true) {
@@ -106,24 +111,31 @@ export class Landing extends Component {
         } else if (this.state.shouldRedirect === true && this.state.isEmployer === true) {
             return <Redirect to='/EmployeeForm'/>
         }
+        
         return (
             <div className="LandingContainer">
             <div className="DevLogin">
                 <h1>Developer</h1>
-                <label>New Developer register</label>
-                <h3>Username:</h3>
+                <label>Username:</label>
                 <input
+                autoComplete = "off"
                 name="username"
                 placeholder="Username"
                 onChange={this.handleChange}
                 />
                 <label>Password:</label>
                 <input
+                type = "password"
                 name="password"
                 placeholder="Password"
                 onChange={this.handleChange}
                 
                 ></input>
+
+                {/* <button onClick={this.clickedRegister}>Register Account</button> */}
+                
+                
+                <button onClick={this.handleDevLogin}>Login</button>
                 <label>First Name:</label>
                 <input
                 name="firstname"
@@ -145,16 +157,30 @@ export class Landing extends Component {
                 onChange={this.handleChange}
                 
                 />
+                <label>Username:</label>
+                <input
+                name="username"
+                placeholder="Username"
+                onChange={this.handleChange}
+                />
+                <label>Password:</label>
+                <input
+                type = "password"
+                name="password"
+                placeholder="Password"
+                onChange={this.handleChange}
+                
+                ></input>
                 <div>
                 <button onClick={this.handleDevRegister}>Register</button>
-                <button onClick={this.handleDevLogin}>Login</button>
+            
                 </div>
             </div>
             <div className="EmployeeLogin">
                 <h1>Employer</h1>
-                <label>New Employers Register</label>
-                <h3>Username:</h3>
+                <label>Username:</label>
                 <input
+                autoComplete = "off"
                 name="username"
                 placeholder="Username"
                 onChange={this.handleChange}
@@ -166,6 +192,7 @@ export class Landing extends Component {
                 onChange={this.handleChange}
                 
                 ></input>
+                <button onClick={this.handleEmployerLogin}>Login</button>
                 <label>First Name:</label>
                 <input
                 name="firstname"
@@ -187,9 +214,22 @@ export class Landing extends Component {
                 onChange={this.handleChange}
 
                 />
+                <label>Username:</label>
+                <input
+                name="username"
+                placeholder="Username"
+                onChange={this.handleChange}
+                />
+                <label>Password:</label>
+                <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={this.handleChange}
+                
+                ></input>
                 <div>
                 <button onClick={this.handleEmployerRegister}>Register</button>
-                <button onClick={this.handleEmployerLogin}>Login</button>
                 </div>
 
             </div>
