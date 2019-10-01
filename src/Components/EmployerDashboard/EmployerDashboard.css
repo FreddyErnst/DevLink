@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     border: 1px white solid;
-    height: 60vh;;
+    height: 65vh;;
     width: 80vw;
     margin-top: 10px;
     background: black;
@@ -21,16 +21,30 @@
     align-items: center;
     background: black;
     color: white;
-    height: 100vh;
+    /* height: 100vh; */
+
     
 }
 
 .DevImg {
-    display: flex; 
-    justify-content: flex-start; 
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    position: absolute;
+    display: inline-block;
+    /* justify-content: flex-start;  */
+    /* height: 100px;
+    width: 100px; */
+    /* width: 1000px;   */
+    /* border-radius: 50%;  */
+    /* align-content: flex-start; */
+    /* position: absolute; */
+    
 
 }
+
+.Developer-Photo {
+    height: 200px;
+    width: 200px;
+}
+
+/* .Dev-Info {
+    display: flex;
+} */
+

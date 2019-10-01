@@ -1,6 +1,7 @@
 module.exports = {
     getDevPosts: async (req, res) => {
         const db = req.app.get('db')
+        // const {developer_id} = req.session.developer
         const devPosts = await db.getDevPosts()
         res.status(200).json(devPosts)
     },
@@ -70,5 +71,12 @@ module.exports = {
         console.log(profilepic)
         const addPicture = await db.addDevProfilePicture(profilepic, developer_id)
         res.status(200).json(addPicture)
+    },
+
+    uniqueDevInformation: async (req , res) => {
+        const db = req.app.get('db')
+        const {developer_id} = req.session.developer
+        const devInfo = await db.getUniqueDevInfo(developer_id)
+        res.status(200).json(devInfo)
     }
 }

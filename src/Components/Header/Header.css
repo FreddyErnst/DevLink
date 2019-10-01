@@ -1,23 +1,19 @@
 .imgD {
     background-color: black;
-    height: 150px;
-    width: 150px;
-
-
-
+    height: 90px;
+    width: 90px;
 }
-
-
 
 .Header-main {
     display: flex;
     width: 100vw;
-    height: 150px;
+    /* height: 150px; */
     background-color: black;
     align-items: center;
     justify-content: space-between;
     font-family: 'Nanum Gothic Coding', monospace;
-    border-bottom: .5px grey solid;
+    margin: 0;
+    padding: 0;
     
 
 }
@@ -26,41 +22,140 @@
     color: white;
     display: flex;
     flex-direction: row;
-    width: 20vw;  
+    width: 30vw;  
     justify-content: space-evenly;
     list-style-type: none;
-    
+    margin: 0;
+    padding: 0;
 }
 
 .Greeting {
     display: flex;
     justify-content: center;
     color: white;
-    
+    margin: 0;
+    padding: 0;
 }
 
-.Hamburger-Button { 
-    height: 35px;
-    width: 35px; 
+.Hamburger { 
+    display: none;
 } 
+
+.Hamburger-Button {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+
+}
 
 .List-Container {
     display: flex;
 }
 
-.hidden-by-default {
+/* .hidden-by-default, .Open-Menu {
     display: none;
 
+}  */
+
+div.top-menu, .top-menu-open, .top-menu.close {
+    /* width: 40vw;
+    height: 32vh; */
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    right: 65.5rem; 
+    /* transform: translateX(1610px); */
+    
 }
 
+.top-menu-open {
+    /* display: block; */
+    animation-name: open;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    /* margin-top: 10vh; */
+    position: relative;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+}
+
+main {
+background-color: black;
+/* height: 150px; */
+border-bottom: .5px grey solid;
+}
+
+h3 {
+    height: 3px;
+}
+
+
+
+.top-menu-close {
+    display: block;
+    animation-name: close;
+    animation-duration: .5s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+    /* margin-top: 10vh; */
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+}
+
+.Open-Menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 85vw;
+    
+}
+
+@keyframes open {
+    from {
+        Transform: translateX(1300px)
+    }
+    to {
+        Transform: translateX(1100px)
+    }
+}
+
+
+@keyframes close {
+    from {
+        Transform: translateX(2000px)
+    }
+    to {
+        Transform: translateX(0px)
+    }
+}
 
 @media (max-width: 1100px) {
     li {
         display: none;
     }
     .Hamburger {
-        display: block;
+        display: flex;
     }
+    
+    .top-menu-open{
+        z-index: 10;
+    }
+    .top-menu-close{
+        z-index:-1;
+    } 
 }
 
+@media (min-width: 1100.1px) {
+    .top-menu-open{
+        display: none;
+    }
+    
+    
+} 
 

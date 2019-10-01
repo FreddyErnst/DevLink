@@ -1,6 +1,7 @@
 module.exports = {
     getEmployerPosts: async (req, res) => {
         const db = req.app.get('db')
+        // const {employer_id} = req.session.employer
         const employerPosts = await db.getEmployerPosts()
         res.status(200).json(employerPosts)
     },
@@ -53,6 +54,14 @@ module.exports = {
     },
 
     deleteEmployerPost: (req, res) => {
+
+    },
+
+    uniqueEmployerInfo: async (req, res) => {
+        const {employer_id} = req.session.employer
+        const db = req.app.get('db')
+        const employerInfo = await db.getUniqueEmployerInfo.db(employer_id)
+        res.status(200).json(employerInfo)
 
     }
 }

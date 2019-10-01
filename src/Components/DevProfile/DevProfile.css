@@ -24,13 +24,21 @@ h2 {
     background: black;
     color: white;
     width: 100vw;
+    /* height: 100vh; */
 }
 
 .Dev-Profile-Picture {
     height: 25vh;
-    width: 25vw;
+    width: 15vw;
     display: flex;
     justify-content: center;
-    border: 1px white solid;
+    /* border: 1px white solid; */
+    border-radius: 50%;
     /* align-items: space-between; */
+}
+
+.Dev-Picture {
+    height: 30vh;
+    width: 35vw;
+    border-radius: 50%;
 }
