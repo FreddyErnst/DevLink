@@ -1,33 +1,25 @@
 
 import React, { Component } from 'react'
-import Axios from 'axios';
+import  '../../redux/reducers/employerFormReducer'
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 
-export default class EmployerDashboard extends Component {
+class EmployerDashboard extends Component {
     constructor() {
         super()
         this.state = {
-            devPost: [],
-            // developer: []
 
         }
     }
-    componentDidMount() {
-        Axios.get('/api/devposts').then((response) => {
-            this.setState({
-                devPost: response.data
-            })
-        })
-
-    }
-
     render() {
+        {console.log(this.props.developer)}
         return (
             <div className="DevPostContainer">
 
                 <h1>Developers Seeking Jobs</h1>
                 <input placeholder='Search by location' />
 
-                {this.state.devPost ? this.state.devPost.map((val, index) => {
+                {this.props.developer ? this.props.developer.map((val, index) => {
                     return <div className="DevPost">
                         <h1>{val.firstname} {val.lastname}</h1>
                         <div className="Dev-Info">
@@ -41,7 +33,7 @@ export default class EmployerDashboard extends Component {
                             <h2>Length of job: {val.joblength}</h2>
                             <h2>Biography: {val.bio}</h2>
                             <h2>Location: {val.state}</h2>
-                            <div><button>Email me!</button></div>
+                            <Link to ='/Email'>Email me!</Link>
                         </span>
                         </div>
 
@@ -51,4 +43,11 @@ export default class EmployerDashboard extends Component {
         )
     }
 }
+
+const mapStateToProps = reduxState => {
+    return {
+        developer: reduxState.employerFormReducer.developer
+    }
+}
+export default connect(mapStateToProps)(EmployerDashboard)
 

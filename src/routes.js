@@ -7,6 +7,7 @@ import EmployerDashboard from './Components/EmployerDashboard/EmployerDashboard'
 import DevDashboard from './Components/DevDashboard/DevDashboard'
 import EmployerProfile from './Components/EmployerProfile/EmployerProfile'
 import DevProfile from './Components/DevProfile/DevProfile'
+import EmailForm from './Components/EmailForm/EmailForm'
 
 
 export default (
@@ -18,6 +19,7 @@ export default (
         <Route path ='/EmployerDashboard' component={EmployerDashboard}/>
         <Route path ='/EmployerProfile' component={EmployerProfile} />
         <Route path ='/DevProfile' component={DevProfile}/>
+        <Route path ='/Email' component={EmailForm}/>
         <Route path  ='/' component={Landing}/>
     </Switch>
 )

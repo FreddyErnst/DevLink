@@ -8,6 +8,7 @@ import "./Components/DevForm/DevForm.css"
 import "./Components/DevProfile/DevProfile.css"
 import "./Components/EmployerDashboard/EmployerDashboard.css"
 import "./Components/DevDashboard/DevDashboard.css"
+import "./Components/EmployerProfile/EmployerProfile.css"
 
 import routes from './routes';
 

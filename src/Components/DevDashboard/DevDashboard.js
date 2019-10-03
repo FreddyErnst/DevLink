@@ -1,33 +1,35 @@
 import React, { Component } from 'react'
-import Axios from 'axios';
+import '../../redux/reducers/devFormReducer'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
-export default class DevDashboard extends Component {
+class DevDashboard extends Component {
     constructor() {
         super()
         this.state = {
-            employerPost: [],
+            // employerPost: [],
             // developer: []
 
         }
     }
-    componentDidMount() {
-        Axios.get('/api/employerposts').then((response) => {
-            this.setState({
-                employerPost: response.data
-            })
-        })
+    // componentDidMount() {
+    //     Axios.get('/api/employerposts').then((response) => {
+    //         this.setState({
+    //             employerPost: response.data
+    //         })
+    //     })
         
-    }
+    // }
 
     render() {
         return (
             <div className="EmployerPostContainer">
                 <h1>Employers Seeking to Hire</h1>
                 <input placeholder='Search by location'/>
-                {this.state.employerPost ? this.state.employerPost.map((val, index) => {
+                {this.props.employer ? this.props.employer.map((val, index) => {
                     return <div className="EmployerPost">
                         <h1>{val.firstname} {val.lastname}</h1>
-                        <div className='EmployerImg'><img src={val.profilepic}/></div>
+                        <div className='EmployerImg'><img src={val.profilepic} className="Employer-Image"/></div>
                         <h2>Primary Language: {val.skill1}</h2>
                         <h2>Styling Language: {val.skill2}</h2>
                         <h2>Database language: {val.skill3}</h2>
@@ -36,11 +38,19 @@ export default class DevDashboard extends Component {
                         <h2>Length of job: {val.joblength}</h2>
                         <h2>Biography: {val.bio}</h2>
                         <h2>Location: {val.state}</h2>
-                        <div><button>Email me!</button></div>
+                        <Link to ='/Email'>Email me!</Link>
                     
-                    </div> 
+                    </div>
                 }) : <h1> Please go fill in the form </h1>}
             </div>
         )
     }
 }
+
+const mapStateToProps = reduxState => {
+    return {
+        employer: reduxState.devFormReducer.employer
+    }
+}
+
+export default connect(mapStateToProps)(DevDashboard)

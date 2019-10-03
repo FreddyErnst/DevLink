@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { updateDevForm, addDevForm } from '../../redux/reducers/devFormReducer'
+import { updateDevForm, addDevForm, getEmployerBySkill } from '../../redux/reducers/devFormReducer'
 
 class DevForm extends Component {
     constructor() {
@@ -32,6 +32,7 @@ class DevForm extends Component {
 
     handleDevFormSubmit = () => {
         this.props.addDevForm(this.state)
+        this.props.getEmployerBySkill(this.state.skill1)
         this.setState({
             didClick: true
         })
@@ -39,6 +40,7 @@ class DevForm extends Component {
 
     handleDevFormUpdate = () => {
         this.props.updateDevForm(this.state)
+        this.props.getEmployerBySkill(this.state.skill1)
     }
 
     handleChange = e => {
@@ -113,5 +115,5 @@ class DevForm extends Component {
     }
 }
 export default connect(null, {
-    updateDevForm, addDevForm
+    updateDevForm, addDevForm, getEmployerBySkill
 })(DevForm)

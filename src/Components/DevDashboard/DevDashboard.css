@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     border: 1px white solid;
-    height: 60vh;
+    height: 65vh;
     width: 80vw;
     margin-top: 10px;
     background: black;
@@ -21,14 +21,20 @@
     align-items: center;
     background: black;
     color: white;
-    /* height: 100vh; */
+    height: 90%;
     
 }
 
 .EmployerImg {
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
     height: 25vh;
     width: 10vw;
-    position: absolute;
+    position: absolute; */
+    display: inline-block;
+}
+
+.Employer-Image {
+    height: 200px;
+    width: 200px;
 }

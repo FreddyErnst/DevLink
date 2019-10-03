@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
-import {updateEmployerForm, addEmployerForm} from '../../redux/reducers/employerFormReducer'
+import {updateEmployerForm, addEmployerForm, getDevBySkill} from '../../redux/reducers/employerFormReducer'
 import {connect} from 'react-redux'
 
 class EmployeeForm extends Component {
@@ -30,10 +30,12 @@ class EmployeeForm extends Component {
 
     handleEmployerForm = () => {
         this.props.addEmployerForm(this.state)
+        this.props.getDevBySkill(this.state.skill1)
     }
 
     handleEmployerFormUpdate = () => {
         this.props.updateEmployerForm(this.state)
+        this.props.getDevBySkill(this.state.skill1)
     }
     handleChange = e => {
         this.setState({
@@ -42,20 +44,7 @@ class EmployeeForm extends Component {
         })
     
     }
-
-    clear = () => {
-        this.setState({
-            skill1: '',
-            skill2: '',
-            skill3: '',
-            skill4: '',
-            experience: '',
-            length: '',
-            bio: '',
-            state: ''
-        })
-    }
-
+    
     handleSubmit() {
     }
     render() {
@@ -122,6 +111,6 @@ class EmployeeForm extends Component {
 }
 
 export default connect(null, {
-    updateEmployerForm, addEmployerForm
+    updateEmployerForm, addEmployerForm, getDevBySkill
 })(EmployeeForm)
 

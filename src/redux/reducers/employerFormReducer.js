@@ -1,19 +1,29 @@
 import axios from 'axios'
 
 const initialState = {
-    employerPost: {}
+    employerPost: {},
+    developer: []
 }
 
 const ADD_EMPLOYER_FORM = "ADD_EMPLOYER_FORM"
 const UPDATE_EMPLOYER_FORM = "UPDATE_EMPLOYER_FORM"
 const UPDATE_EMPLOYER_USERNAME = "UPDATE_EMPLOYER_USERNAME"
 const UPDATE_EMPLOYER_EMAIL = "UPDATE_EMPLOYER_EMAIL"
+const GET_DEV_BY_SKILL = "GET_DEV_BY_SKILL"
 
 export function addEmployerForm(skills) {
     return {
         type: ADD_EMPLOYER_FORM,
-        payload: axios.post('/api/employerposts/', skills)
+        payload: axios.post('/api/employerposts/', skills),
+        
+    }
     
+}
+export function getDevBySkill(skill1) {
+    console.log(skill1)
+    return {
+        type: GET_DEV_BY_SKILL,
+        payload: axios.get(`/api/devpost/${skill1}`)
     }
 }
 
@@ -58,6 +68,13 @@ export default function reducer (state=initialState, action) {
             return {
                 ...state,
                 employerPost: action.payload.data
+            }
+        }  case `${GET_DEV_BY_SKILL}_FULFILLED`: {
+        console.log('Hitttt')
+            return {
+                ...state,
+                developer: action.payload.data
+
             }
         }
         default: return state;

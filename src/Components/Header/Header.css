@@ -71,7 +71,7 @@ div.top-menu, .top-menu-open, .top-menu.close {
 .top-menu-open {
     /* display: block; */
     animation-name: open;
-    animation-duration: .6s;
+    animation-duration: .5s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
     /* margin-top: 10vh; */
@@ -121,7 +121,7 @@ h3 {
         Transform: translateX(1300px)
     }
     to {
-        Transform: translateX(1100px)
+        Transform: translateX(1099px)
     }
 }
 

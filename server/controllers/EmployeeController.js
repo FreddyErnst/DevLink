@@ -6,11 +6,11 @@ module.exports = {
         res.status(200).json(employerPosts)
     },
 
-    getEmployerPost: async (req, res) => {
+    getEmployerPostBySkill: async (req, res) => {
         const db = req.app.get('db')
-    
-        const employerPostById = await db.getEmployerPostById()
-        res.status(200).json(employerPostById)
+        const {skill1} = req.params
+        const employerPostBySkill = await db.getEmployerPostBySkill(skill1)
+        res.status(200).json(employerPostBySkill)
     },
 
     employerPost: async (req, res) => {
@@ -60,8 +60,20 @@ module.exports = {
     uniqueEmployerInfo: async (req, res) => {
         const {employer_id} = req.session.employer
         const db = req.app.get('db')
-        const employerInfo = await db.getUniqueEmployerInfo.db(employer_id)
+        const employerInfo = await db.getUniqueEmployerInfo(employer_id)
         res.status(200).json(employerInfo)
 
-    }
+    },
+
+    addEmployerPicture: async (req, res) => {
+        const db = req.app.get('db')
+        const {profilepic} = req.body
+        const {employer_id} = req.session.employer
+        console.log(employer_id)
+        console.log(profilepic)
+        const addPicture = await db.addEmployerProfilePicture(profilepic, employer_id)
+        // console.log(addPicture)
+        res.status(200).json(addPicture)
+    },
+
 }

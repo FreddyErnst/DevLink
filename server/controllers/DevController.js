@@ -6,11 +6,13 @@ module.exports = {
         res.status(200).json(devPosts)
     },
 
-    getDevPost: async (req, res) => {
+    getDevPostBySkill: async (req, res) => {
         const db = req.app.get('db')
-        const filteredDevPost = await db.getDevPost(skill1, skill2, skill3, skill4, experience, length, bio ,state)
-
-        res.status(200).json(filteredDevPost)
+        const {skill1} = req.params
+        
+        const uniqueDevSkill = await db.getDevPostBySkill(skill1)
+        res.status(200).json(uniqueDevSkill)
+        console.log(uniqueDevSkill)
     },
 
     devPost: async (req, res) => {
