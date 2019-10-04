@@ -1,26 +1,30 @@
 .DevPost {
+  
     display: flex;
-    
     flex-direction: column;
-    justify-content: space-between;
     border: 1px white solid;
-    height: 65vh;;
-    width: 80vw;
+    height: 50vh;
+    width: 35vw;
     margin-top: 10px;
-    background: black;
-    color: White;
-    
+    background: lightblue;
+    color: black;
+    Overflow: scroll;
+    border-radius: 2%;
+    margin-left: 15px;
     
 
 }
 
 .DevPostContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background: black;
     color: white;
+    height: 100%;
+    margin-top: 50px;
 
 
     
@@ -28,25 +32,28 @@
 
 .DevImg {
     display: inline-block;
-    /* justify-content: flex-start;  */
-    /* height: 100px;
-    width: 100px; */
-    /* width: 1000px;   */
-    /* border-radius: 50%;  */
-    /* align-content: flex-start; */
-    /* position: absolute; */
+
     
 
 }
 
 .Developer-Photo {
-    height: 25vh;
-    width: 25vw;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
     
 }
 
-/* .Dev-Info {
+.dash-Header {
+    height: 50vh;
+    width: 35vw;
+    border: .5px white solid;
+    border-radius: 3%;
+    margin-right: 10px;
     display: flex;
-} */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
 

@@ -24,13 +24,16 @@ export default class EmailForm extends Component {
 
         const {name, email, message} = this.state
 
-         axios.post('/api/email', {
+        axios.post('/api/email', {
             name, email, message
         })
+        e.target.reset()
+        alert('Email sent')
     }
     render() {
         return (
-        <Form onSubmit={this.handleSubmit}>
+            <div className="Email-Container">
+        <Form onSubmit={this.handleSubmit} className="Email-Form">
             <FormGroup>
                 <Label for="name">Name:</Label>
                 <Input 
@@ -57,6 +60,7 @@ export default class EmailForm extends Component {
             </FormGroup>
             <Button>Submit</Button>
         </Form>
+        </div>
         )
     }
 }

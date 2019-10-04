@@ -1,27 +1,27 @@
 .EmployerPost {
     display: flex;
-    
     flex-direction: column;
-    justify-content: space-between;
     border: 1px white solid;
-    height: 65vh;
-    width: 80vw;
+    height: 50vh;
+    width: 35vw;
     margin-top: 10px;
-    background: black;
-    color: White;
-    
-    
-
+    background: white;
+    color: black;
+    Overflow: scroll;
+    border-radius: 2%;
+    margin-left: 15px;
 }
 
 .EmployerPostContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background: black;
     color: white;
-    height: 90%;
+    margin-top: 50px;
+    
     
 }
 
@@ -37,4 +37,18 @@
 .Employer-Image {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+}
+
+.Dash-Header {
+    height: 50vh;
+    width: 35vw;
+    border: .5px white solid;
+    border-radius: 3%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 }

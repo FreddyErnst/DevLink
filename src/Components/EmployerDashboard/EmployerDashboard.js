@@ -15,27 +15,27 @@ class EmployerDashboard extends Component {
         {console.log(this.props.developer)}
         return (
             <div className="DevPostContainer">
-
+                <div className="dash-Header">
                 <h1>Developers Seeking Jobs</h1>
                 <input placeholder='Search by location' />
-
+                </div>
                 {this.props.developer ? this.props.developer.map((val, index) => {
                     return <div className="DevPost">
                         <h1>{val.firstname} {val.lastname}</h1>
-                        <div className="Dev-Info">
+                        <Link to ='/Email'>Email me!</Link>
+                        
                         <div className='DevImg'><img src={val.profilepic} className="Developer-Photo"/></div>
-                        <span>
-                            <h2>Primary Language: {val.skill1}</h2>
-                            <h2>Styling Language: {val.skill2}</h2>
-                            <h2>Database language: {val.skill3}</h2>
-                            <h2>DataBase language: {val.skill4}</h2>
-                            <h2>Current experience: {val.experience}</h2>
-                            <h2>Length of job: {val.joblength}</h2>
-                            <h2>Biography: {val.bio}</h2>
-                            <h2>Location: {val.state}</h2>
-                            <Link to ='/Email'>Email me!</Link>
-                        </span>
-                        </div>
+                    
+                            <h3>Primary Language: {val.skill1}</h3>
+                            <h4>Styling Language: {val.skill2}</h4>
+                            <h4>Database language: {val.skill3}</h4>
+                            <h4>DataBase language: {val.skill4}</h4>
+                            <h4>Current experience: {val.experience}</h4>
+                            <h4>Length of job: {val.joblength}</h4>
+                            <h4>Biography: {val.bio}</h4>
+                            <h4>Location: {val.state}</h4>
+                    
+            
 
                     </div>
                 }) : <h1> Please go fill in the form </h1>}

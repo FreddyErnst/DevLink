@@ -49,8 +49,10 @@ app.post('/api/email', (req, res) => {
                 user: 'Nodemailer1723@gmail.com',
                 pass: 'Nib87nib87nib87'
             }
+           
         })
         let mailOptions = {
+            
             from: 'test@testaccount.com',
             to: 'Nodemailer1723@gmail.com',
             replyTo: 'test@testaccount.com',
