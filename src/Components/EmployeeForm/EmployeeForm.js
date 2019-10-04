@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import {updateEmployerForm, addEmployerForm, getDevBySkill} from '../../redux/reducers/employerFormReducer'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 class EmployeeForm extends Component {
     constructor() {
@@ -24,18 +25,26 @@ class EmployeeForm extends Component {
                 "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA",
                 "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE",
                 "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC",
-                "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]
+                "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"],
+            num: 0,
+            didClick: false
         }
     }
 
     handleEmployerForm = () => {
         this.props.addEmployerForm(this.state)
         this.props.getDevBySkill(this.state.skill1)
+        this.setState({
+            didClick: true
+        })
     }
 
     handleEmployerFormUpdate = () => {
         this.props.updateEmployerForm(this.state)
         this.props.getDevBySkill(this.state.skill1)
+        this.setState({
+            didClick: true
+        })
     }
     handleChange = e => {
         this.setState({
@@ -47,65 +56,185 @@ class EmployeeForm extends Component {
     
     handleSubmit() {
     }
+    handleIncrement = () => {
+        this.setState({
+            num: this.state.num += 1
+        })
+    }
+
+    handleDecrement = () => {
+        this.setState({
+            num: this.state.num -= 1
+        })
+    }
     render() {
+        if (this.state.didClick === true) {
+            return <Redirect to='/EmployerDashboard'/>
+        }
         return (
             <div className="EmployerForm">
-
-                <div className="EmployerMenus">
-                    <h2>Go to <Link to='/EmployerDashboard'>Dashboard</Link></h2>
-
-                    <h4>Select your wanted primary development language</h4>
-                    <select onChange={this.handleChange} name='skill1'>
-                        {this.state.primaryLanguage.map(val => <option value={val}>{val}</option>)}
-                    </select>
-
-
-
-                    <h4>Select your wanted primary styling language</h4>
-                    <select onChange={this.handleChange} name="skill2">
-                        {this.state.primaryStyle.map(val => <option value={val}>{val}</option>)}
-                    </select>
-
-
-                    <h4>Select your wanted Backend Language</h4>
-                    <select onChange={this.handleChange} name='skill3'>
-                        {this.state.backendLanguage.map(val => <option value={val}>{val}</option>)}
-                    </select>
-
-
-                    <h4>Please select your wanted Database Language</h4>
-                    <select onChange={this.handleChange} name='skill4'>
-                        {this.state.databaseLanguage.map(val => <option value={val}>{val}</option>)}
-                    </select>
-
-
-                    <h4>How much Experience are you looking for?</h4>
-                    <select onChange={this.handleChange} name='experience'>
-                        {this.state.exp.map(val => <option value={val}>{val}</option>)}
-                    </select>
-
-
-                    <h4>How long do you want to hire?</h4>
-                    <select onChange={this.handleChange} name='length'>
-                        <option></option>
-                        <option value="Short-term">Short-term</option>
-                        <option value="Short-term">Long-term</option>
-                    </select>
-                    <h4>What state are you located in?</h4>
-                    <select onChange={this.handleChange} name='state'>
-                        {this.state.states.map(val => <option value={val}>{val}</option>)}
-                    </select> 
-            
-                    <div>
-                        <h3>Enter description about the job</h3>
-                        <input className='employerInput' placeholder="Bio" name="bio" onChange={this.handleChange}></input>
+            {(() => {
+                switch (this.state.num) {
+                    case 0: return <div>
+                        <h1>Click Here to get started</h1> <button onClick={this.handleIncrement}>Next</button>
                     </div>
-                    <button type="submit" onClick={this.handleEmployerForm}>Submit</button>
-                    <button type='submit' onClick={this.handleEmployerFormUpdate}>Update</button>
-                    {console.log(this.state)}
-                </div>
 
-            </div>
+                    case 1: return <div><h1>Select your primary development language</h1>
+                        <select onChange={this.handleChange} name='skill1'>
+                            {this.state.primaryLanguage.map(val => <option value={val}>{val}</option>)}
+                        </select>
+                        <div>
+                        <button onClick={this.handleDecrement}>Previous</button>
+                        <button onClick={this.handleIncrement}>Next</button>
+                        
+                        </div>
+                    </div>
+
+                    case 2: return <div>
+                        <h4>Select your primary styling language</h4>
+                        <select onChange={this.handleChange} name="skill2">
+                            {this.state.primaryStyle.map(val => <option value={val}>{val}</option>)}
+                        </select>
+                        <div>
+                        <button onClick={this.handleDecrement}>Previous</button>
+                        <button onClick={this.handleIncrement}>Next</button>
+                        
+                        </div>
+                    </div>
+
+                    case 3: return <div>
+                        <h4>Select your Backend Language</h4>
+                        <select onChange={this.handleChange} name='skill3'>
+                            {this.state.backendLanguage.map(val => <option value={val}>{val}</option>)}
+                        </select>
+                        <div>
+                        <button onClick={this.handleDecrement}>Previous</button>
+                        <button onClick={this.handleIncrement}>Next</button>
+                    
+                        </div>
+                    </div>
+
+                    case 4: return <div>
+                        <h4>Please select Database Language</h4>
+                        <select onChange={this.handleChange} name='skill4'>
+                            {this.state.databaseLanguage.map(val => <option value={val}>{val}</option>)}
+                        </select>
+                        <div>
+                        <button onClick={this.handleDecrement}>Previous</button>
+                        <button onClick={this.handleIncrement}>Next</button>
+                        
+                        </div>
+                    </div>
+
+                    case 5: return <div>
+                        <h4>How much Experience do you have?</h4>
+                        <select onChange={this.handleChange} name='experience'>
+                            {this.state.exp.map(val => <option value={val}>{val}</option>)}
+                        </select>
+                        <div>
+                        <button onClick={this.handleDecrement}>Previous</button>
+                        <button onClick={this.handleIncrement}>Next</button>
+                        
+                        </div>
+                    </div>
+
+                    case 6: return <div>
+                        <h4>Length of job</h4>
+                        <select onChange={this.handleChange} name='length'>
+                            <option></option>
+                            <option value="Short-term">Short-term</option>
+                            <option value="Long-term">Long-term</option>
+                        </select>
+                        <div>
+                        
+                        <button onClick={this.handleDecrement}>Previous</button>
+                        <button onClick={this.handleIncrement}>Next</button>
+                        </div>
+                    </div>
+                    case 7: return <div>
+                        <h4>Please enter your state</h4>
+                        <select onChange={this.handleChange} name='state'>
+                            {this.state.states.map(val => <option value={val}>{val}</option>)}
+                        </select>
+                        <div>
+                        <button onClick={this.handleDecrement}>Previous</button>
+                        <button onClick={this.handleIncrement}>Next</button>
+                        
+                        </div>
+                    </div>
+
+                    case 8: return <div><h3>Enter bio</h3>
+
+                        <input className='employerInput' placeholder="Bio" name='bio' onChange={this.handleChange}></input>
+                        <div>
+                            <button onClick={this.handleDecrement}>Previous</button>
+                            <button type='submit' onClick={this.handleEmployerForm}>Submit</button>
+                            <button type='submit' onClick={this.handleEmployerFormUpdate}>Update</button>
+                        </div>
+
+                    </div>
+
+                    default: return <h1>Please fill out the form</h1>
+                }
+            })()}
+        </div>
+            // <div className="EmployerForm">
+
+            //     <div className="EmployerMenus">
+            //         <h2>Go to <Link to='/EmployerDashboard'>Dashboard</Link></h2>
+
+            //         <h4>Select your wanted primary development language</h4>
+            //         <select onChange={this.handleChange} name='skill1'>
+            //             {this.state.primaryLanguage.map(val => <option value={val}>{val}</option>)}
+            //         </select>
+
+
+
+            //         <h4>Select your wanted primary styling language</h4>
+            //         <select onChange={this.handleChange} name="skill2">
+            //             {this.state.primaryStyle.map(val => <option value={val}>{val}</option>)}
+            //         </select>
+
+
+            //         <h4>Select your wanted Backend Language</h4>
+            //         <select onChange={this.handleChange} name='skill3'>
+            //             {this.state.backendLanguage.map(val => <option value={val}>{val}</option>)}
+            //         </select>
+
+
+            //         <h4>Please select your wanted Database Language</h4>
+            //         <select onChange={this.handleChange} name='skill4'>
+            //             {this.state.databaseLanguage.map(val => <option value={val}>{val}</option>)}
+            //         </select>
+
+
+            //         <h4>How much Experience are you looking for?</h4>
+            //         <select onChange={this.handleChange} name='experience'>
+            //             {this.state.exp.map(val => <option value={val}>{val}</option>)}
+            //         </select>
+
+
+            //         <h4>How long do you want to hire?</h4>
+            //         <select onChange={this.handleChange} name='length'>
+            //             <option></option>
+            //             <option value="Short-term">Short-term</option>
+            //             <option value="Short-term">Long-term</option>
+            //         </select>
+            //         <h4>What state are you located in?</h4>
+            //         <select onChange={this.handleChange} name='state'>
+            //             {this.state.states.map(val => <option value={val}>{val}</option>)}
+            //         </select> 
+            
+            //         <div>
+            //             <h3>Enter description about the job</h3>
+            //             <input className='employerInput' placeholder="Bio" name="bio" onChange={this.handleChange}></input>
+            //         </div>
+            //         <button type="submit" onClick={this.handleEmployerForm}>Submit</button>
+            //         <button type='submit' onClick={this.handleEmployerFormUpdate}>Update</button>
+            //         {console.log(this.state)}
+            //     </div>
+
+            // </div>
         )
     }
 }

@@ -7,15 +7,39 @@
     justify-content: center;
     color: white;
     background-color: black;
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     /* background-image: url('https://wallpaperaccess.com/full/279937.png'); */
     font-family: 'Nanum Gothic Coding', monospace;
     
+}
 
-    
+.DevForm > h1, h2 {
+    font-size: 50px;
+}
+.Next-Button {
+    height: 50px;
+    width: 60px;
+    cursor: pointer;
+}
 
-    
+
+select {
+    height: 10px;
+    width: 15vw;
+}
+
+.DevForm > div {
+    background-color: white;
+    height: 50vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://iamkwame.com/wp-content/uploads/2019/08/wordpress-3288414.jpg');
+    background-size: cover;
     
 }
 
@@ -26,7 +50,3 @@
     flex-direction: column;
 }
 
-.employerInput {
-    height: 80px;
-    width: 300px;
-}

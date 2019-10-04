@@ -1,28 +1,40 @@
 .EmployerForm  {
     display: flex;
     /* flex-direction: column; */
+    
     align-content: center;
     align-items: center;
     justify-content: center;
     color: white;
     background-color: black;
-    height: 100vh;
-    width: 100%;
-    background-image: url('https://wallpaperaccess.com/full/279937.png');
-    /* background-image: url('https://media.discordapp.net/attachments/338942776307744770/626978425457999883/Untitled-1.png?width=1797&height=1124'); */
-    /* background-size: cover; */
-    /* background-position: center center; */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    height: 90vh;
+    width: 100vw;
+    /* background-image: url('https://wallpaperaccess.com/full/279937.png'); */
     font-family: 'Nanum Gothic Coding', monospace;
-    
+}
 
-    
-
-    
+.EmployerForm > div {
+    background-color: white;
+    height: 50vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://iamkwame.com/wp-content/uploads/2019/08/wordpress-3288414.jpg');
+    background-size: cover;
     
 }
 
+select {
+    height: 10px;
+    width: 15vw;
+}
+
+.EmployerForm > h1, h2 {
+    font-size: 50px;
+}
 .EmployerMenus {
     display: flex;
     align-content: center;

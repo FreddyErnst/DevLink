@@ -31,10 +31,7 @@ class DevDashboard extends Component {
                         <h4>Database: {val.skill4}</h4>
                         <h4>Experience required: {val.experience}</h4>
                         <h4>Duration: {val.joblength}</h4>
-                        
                         <h4>Current location: {val.state}</h4>
-                    
-                    
                     </div>
                 }) : <h1> Please go fill in the form </h1>}
             </div>

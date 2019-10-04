@@ -5,11 +5,12 @@
     height: 50vh;
     width: 35vw;
     margin-top: 10px;
-    background: white;
-    color: black;
-    Overflow: scroll;
+    background: black;
+    color: white;
+    Overflow: auto ;
     border-radius: 2%;
     margin-left: 15px;
+    
 }
 
 .EmployerPostContainer {
@@ -21,8 +22,9 @@
     background: black;
     color: white;
     margin-top: 50px;
-    
-    
+    width: 100vw;
+    min-height: 100vh;
+    font-family: 'Nanum Gothic Coding', monospace;
 }
 
 .EmployerImg {
@@ -50,5 +52,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url('https://andrehost.com.br/wp-content/uploads/2018/01/6-bibliotecas-javascript-para-desenvolvimento-web.png');
+    background-size: cover;
+    background-blend-mode: color;
+    
 
 }
