@@ -2,7 +2,8 @@
 #button {
     border-radius: 20px 20px;
     width: 120px;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 button {
@@ -55,9 +56,11 @@ button {
     }
 
     div.DevLogin, div.EmployeeLogin {
-      height: 30vh;
+      height: 35vh;
       width: 25vw;
       margin-bottom: 90px;
+      display: flex;
+      justify-content: space-around;
     
     }
 }
