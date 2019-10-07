@@ -8,7 +8,7 @@ module.exports = {
     },
 
     registerDev: async (req, res) => {
-        console.log("hit")
+     
         const {username, password, firstname, lastname, email} = req.body
         const db = req.app.get('db')
 

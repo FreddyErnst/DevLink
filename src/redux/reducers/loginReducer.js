@@ -57,7 +57,7 @@ export function deleteDeveloperAccount () {
 }
 
 export default function reducer (state=initialState, action) {
-    console.log(action.payload)
+   
     switch(action.type) {
         case UPDATE_DEVELOPER: 
             return {

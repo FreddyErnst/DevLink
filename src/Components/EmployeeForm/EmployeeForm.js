@@ -178,63 +178,7 @@ class EmployeeForm extends Component {
                 }
             })()}
         </div>
-            // <div className="EmployerForm">
-
-            //     <div className="EmployerMenus">
-            //         <h2>Go to <Link to='/EmployerDashboard'>Dashboard</Link></h2>
-
-            //         <h4>Select your wanted primary development language</h4>
-            //         <select onChange={this.handleChange} name='skill1'>
-            //             {this.state.primaryLanguage.map(val => <option value={val}>{val}</option>)}
-            //         </select>
-
-
-
-            //         <h4>Select your wanted primary styling language</h4>
-            //         <select onChange={this.handleChange} name="skill2">
-            //             {this.state.primaryStyle.map(val => <option value={val}>{val}</option>)}
-            //         </select>
-
-
-            //         <h4>Select your wanted Backend Language</h4>
-            //         <select onChange={this.handleChange} name='skill3'>
-            //             {this.state.backendLanguage.map(val => <option value={val}>{val}</option>)}
-            //         </select>
-
-
-            //         <h4>Please select your wanted Database Language</h4>
-            //         <select onChange={this.handleChange} name='skill4'>
-            //             {this.state.databaseLanguage.map(val => <option value={val}>{val}</option>)}
-            //         </select>
-
-
-            //         <h4>How much Experience are you looking for?</h4>
-            //         <select onChange={this.handleChange} name='experience'>
-            //             {this.state.exp.map(val => <option value={val}>{val}</option>)}
-            //         </select>
-
-
-            //         <h4>How long do you want to hire?</h4>
-            //         <select onChange={this.handleChange} name='length'>
-            //             <option></option>
-            //             <option value="Short-term">Short-term</option>
-            //             <option value="Short-term">Long-term</option>
-            //         </select>
-            //         <h4>What state are you located in?</h4>
-            //         <select onChange={this.handleChange} name='state'>
-            //             {this.state.states.map(val => <option value={val}>{val}</option>)}
-            //         </select> 
-            
-            //         <div>
-            //             <h3>Enter description about the job</h3>
-            //             <input className='employerInput' placeholder="Bio" name="bio" onChange={this.handleChange}></input>
-            //         </div>
-            //         <button type="submit" onClick={this.handleEmployerForm}>Submit</button>
-            //         <button type='submit' onClick={this.handleEmployerFormUpdate}>Update</button>
-            //         {console.log(this.state)}
-            //     </div>
-
-            // </div>
+        
         )
     }
 }

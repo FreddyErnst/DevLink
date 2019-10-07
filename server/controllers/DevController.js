@@ -11,9 +11,9 @@ module.exports = {
         const {skill1} = req.params
         
         const uniqueDevSkill = await db.getDevPostBySkill(skill1)
-        console.log(uniqueDevSkill)
+      
         res.status(200).json(uniqueDevSkill)
-        console.log(uniqueDevSkill)
+     
     },
 
     devPost: async (req, res) => {

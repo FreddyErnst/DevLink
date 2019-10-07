@@ -12,7 +12,7 @@ class EmployerDashboard extends Component {
     }
 
     render() {
-        {console.log(this.props.developer)}
+        
         return (
             <div className="DevPostContainer">
                 <div className="dash-Header">
@@ -50,7 +50,7 @@ class EmployerDashboard extends Component {
 }
 
 const mapStateToProps = reduxState => {
-    console.log(reduxState)
+
     return {
         developer: reduxState.employerFormReducer.developer
     }

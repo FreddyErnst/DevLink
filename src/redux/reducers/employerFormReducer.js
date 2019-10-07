@@ -20,7 +20,7 @@ export function addEmployerForm(skills) {
     
 }
 export function getDevBySkill(skill1) {
-    console.log(skill1)
+  
     return {
         type: GET_DEV_BY_SKILL,
         payload: axios.get(`/api/devpost/${skill1}`)
@@ -48,7 +48,7 @@ export function updateEmployerForm(skills) {
     }
 }
 export default function reducer (state=initialState, action) {
-    console.log(action.payload)
+   
     switch(action.type) {
         case `${ADD_EMPLOYER_FORM}_FULFILLED`: {
             return {
@@ -70,7 +70,7 @@ export default function reducer (state=initialState, action) {
                 employerPost: action.payload.data
             }
         }  case `${GET_DEV_BY_SKILL}_FULFILLED`: {
-        console.log('Hitttt')
+       
             return {
                 ...state,
                 developer: action.payload.data

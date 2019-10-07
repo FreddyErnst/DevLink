@@ -114,7 +114,7 @@ class EmployerProfile extends Component {
                             <h2 id="h2">Add Github</h2>
                             <input onChange={this.handleChange} name="github" placeholder="Full link" />
                             <button type="submit" onClick={this.addGitHub}>Submit</button>
-                            {console.log(this.state)}
+                           
                             <div>
                     <h2 id="h2">Delete Account</h2>
                     <button onClick={this.deleteAccount}>Delete</button>
