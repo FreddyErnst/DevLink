@@ -124,7 +124,7 @@ class DevProfile extends Component {
                 <div className="Profile-Functions">
 
                     <div className="Picture-Buttons">
-                        <h1>Add Profile Picture</h1>
+                        <h2 id="h2">Add Profile Picture</h2>
                         <button onClick={() => widget.open()}>Select Image</button>
                         <button onClick={this.addPicture}>Submit</button>
                         <form onSubmit={this.handleSubmit} class="Function-Form">
@@ -135,7 +135,7 @@ class DevProfile extends Component {
                             <h2 id="h2">Update Email:</h2>
                             <input name="email" onChange={this.handleChange} placeholder="Email" />
                             <button type='submit' onClick={this.editDeveloperEmail}>Submit Email</button>
-                           
+                        
                             <h2 id="h2">Add Github</h2>
                             <input onChange={this.handleChange} name="github" placeholder="Full link" />
                             <button type="submit" onClick={this.addGitHub}>Submit</button>

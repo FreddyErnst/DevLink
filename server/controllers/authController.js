@@ -118,6 +118,7 @@ module.exports = {
         const db = req.app.get('db')
 
         const employerExists = await db.checkForEmployer(username)
+        const skillExists = await db.checkForEmployerSkill(username)
 
         if (!employerExists[0]) {
             res.status(403).json("Username or Password incorrect")
@@ -133,7 +134,8 @@ module.exports = {
                     username: employerExists[0].username,
                     firstname: employerExists[0].firstname,
                     lastname: employerExists[0].lastname,
-                    email: employerExists[0].email
+                    email: employerExists[0].email,
+                    skill1: skillExists[0].skill1
                 }
                 res.status(200).json(req.session.employer)
             }

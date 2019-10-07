@@ -1,8 +1,9 @@
 .ProfileContainer {
-    height: 100vh;
+    height: 90.65vh;
     width: 100vw;
     display: flex;
     justify-content: space-between;
+    
     
 }
 
@@ -28,6 +29,7 @@
     align-self: center;
     /* margin-right: 10vw; */
     color: white;
+    overflow: hidden;
 
 }
 

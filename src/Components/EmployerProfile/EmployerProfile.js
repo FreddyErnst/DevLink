@@ -100,7 +100,7 @@ class EmployerProfile extends Component {
                 <div className="Profile-Functions">
 
                     <div className="Picture-Buttons">
-                        <h1>Add Profile Picture</h1>
+                        <h2 id="h2">Add Profile Picture</h2>
                         <button onClick={() => widget.open()}>Select Image</button>
                         <button onClick={this.addPicture}>Submit</button>
                         <form onSubmit={this.handleSubmit}>

@@ -3,12 +3,16 @@ import React, { Component } from 'react'
 import  '../../redux/reducers/employerFormReducer'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
-import Axios from 'axios';
+import {getDevBySkill} from '../../redux/reducers/employerFormReducer'
 
 class EmployerDashboard extends Component {
     constructor() {
         super()
         
+    }
+
+    componentDidMount = () => {
+        this.props.getDevBySkill(this.props.skill1)
     }
 
     render() {
@@ -52,8 +56,12 @@ class EmployerDashboard extends Component {
 const mapStateToProps = reduxState => {
 
     return {
-        developer: reduxState.employerFormReducer.developer
+        developer: reduxState.employerFormReducer.developer,
+        skill1: reduxState.loginReducer.employer.skill1
+        
     }
 }
-export default connect(mapStateToProps)(EmployerDashboard)
+export default connect(mapStateToProps, {
+    getDevBySkill
+})(EmployerDashboard)
 
