@@ -9,6 +9,9 @@ const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 const authController = require('./controllers/authController')
 const Devcontroller = require('./controllers/DevController')
 const EmployeeController = require('./controllers/EmployeeController')
+const path = require('path')
+
+app.use( express.static( `${__dirname}/../build` ) );
 
 
 app.use(express.json())
@@ -118,6 +121,10 @@ app.get('/api/Developers', Devcontroller.getDevs)
 //Dev Dashboard
 app.get('/api/developers/State', Devcontroller.searchByState)
 // app.get('/api/Employers', EmployeeController.getEmployers)
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on ${SERVER_PORT}`)
