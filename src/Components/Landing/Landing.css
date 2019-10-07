@@ -58,9 +58,9 @@ button {
     div.DevLogin, div.EmployeeLogin {
       height: 35vh;
       width: 25vw;
-      margin-bottom: 90px;
-      display: flex;
-      justify-content: space-around;
-    
+    }
+
+    #button {
+        margin-bottom: 30px;
     }
 }
