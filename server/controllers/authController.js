@@ -8,7 +8,7 @@ module.exports = {
     },
 
     registerDev: async (req, res) => {
-     
+    
         const {username, password, firstname, lastname, email} = req.body
         const db = req.app.get('db')
 
@@ -28,6 +28,7 @@ module.exports = {
                 firstname: newDev[0].firstname,
                 lastname: newDev[0].lastname,
                 email: newDev[0].email
+                
             
             }
             res.status(200).json(req.session.developer)
@@ -37,8 +38,11 @@ module.exports = {
     loginDev: async (req, res) => {
         const {username, password} = req.body
         const db = req.app.get('db')
+    
 
         const devExists = await db.checkForDev(username)
+        const skillExists = await db.checkForDevSkill(username)
+        console.log(skillExists)
 
         if (!devExists[0]) {
             console.log('No username found')
@@ -58,7 +62,8 @@ module.exports = {
                     username: devExists[0].username,
                     firstname: devExists[0].firstname,
                     lastname: devExists[0].lastname,
-                    email: devExists[0].email
+                    email: devExists[0].email,
+                    skill1: skillExists[0].skill1
                 }
                 res.status(200).json(req.session.developer)
             }
@@ -67,6 +72,8 @@ module.exports = {
 
 
     },
+
+    
 
     logoutDev: (req, res) => {
         req.session.destroy()

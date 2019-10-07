@@ -1,4 +1,6 @@
 module.exports = {
+
+   
     getEmployerPosts: async (req, res) => {
         const db = req.app.get('db')
         // const {employer_id} = req.session.employer

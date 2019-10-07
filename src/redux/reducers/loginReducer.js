@@ -11,6 +11,9 @@ const UPDATE_EMPLOYER = "UPDATE_EMPLOYER"
 const LOGOUT_DEV = "LOGOUT_DEV"
 const LOGOUT_EMPLOYER = "LOGOUT_EMPLOYER"
 const DELETE_DEVELOPER_ACCOUNT = "DELETE_DEVELOPER_ACCOUNT"
+const GET_DEV = "GET_DEVELOPER"
+const GET_EMPLOYER = "GET_EMPLOYER"
+
 // const ADD_PROFILE_PICTURE = "ADD_PROFILE_PICTURE"
 
 
@@ -34,6 +37,23 @@ export function updateEmployer(employer) {
         payload: employer
     }
 }
+
+export function getDev() {
+    return {
+        type: GET_DEV,
+        payload: Axios.get('/auth/dev')
+    }
+}
+
+
+export function getEmployer() {
+    return {
+        type: GET_EMPLOYER,
+        payload: Axios.get('/auth/employer')
+    }
+}
+
+
 
 export function logOutDev() {
     Axios.post('/auth/logoutDev')
@@ -88,11 +108,17 @@ export default function reducer (state=initialState, action) {
                 developer: {}
                 
             }
-            // case ADD_PROFILE_PICTURE: 
-            // return {
-            //     ...state,
-            //     developer: action.payload
-            // }
+
+            case `${GET_DEV}_FULFILLED`:
+                return {
+                    ...state,
+                    developer: action.payload.data
+                }
+            case `${GET_EMPLOYER}_FULFILLED`:
+                return {
+                    ...state,
+                    employer: action.payload.data
+                }
         default: return state;
     }
 }

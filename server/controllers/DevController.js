@@ -11,7 +11,7 @@ module.exports = {
         const {skill1} = req.params
         
         const uniqueDevSkill = await db.getDevPostBySkill(skill1)
-      
+    
         res.status(200).json(uniqueDevSkill)
      
     },
@@ -56,10 +56,6 @@ module.exports = {
         res.sendStatus(200)
     },
 
-    deleteDevPost: (req, res) => {
-
-    },
-
     getDevs: async (req, res) => {
     const db = req.app.get('db')
     const getAllDevs = await db.getDevs()
@@ -70,8 +66,6 @@ module.exports = {
         const db = req.app.get('db')
         const {profilepic} = req.body
         const {developer_id} = req.session.developer
-        console.log(developer_id)
-        console.log(profilepic)
         const addPicture = await db.addDevProfilePicture(profilepic, developer_id)
         res.status(200).json(addPicture)
     },

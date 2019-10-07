@@ -2,16 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import { connect } from "react-redux"
-import { logOutEmployer, logOutDev } from '../../redux/reducers/loginReducer'
+import { logOutEmployer, logOutDev, getDev, getEmployer } from '../../redux/reducers/loginReducer'
+
 
 
 class Header extends React.Component {
     constructor() {
         super()
         this.state = {
-            menuOpenStatus: "top-menu"
+            menuOpenStatus: "top-menu",
+        
         }
     }
+
+    componentDidMount = () => {
+        this.props.getDev()
+        this.props.getEmployer()
+    }
+
     handleDevLogOut = () => {
         this.props.logOutDev()
         this.props.history.push('/')
@@ -29,9 +37,9 @@ class Header extends React.Component {
         }
     }
     render() {
-        console.log(this.props)
+
         return (
-            <main>
+            <main id="Header-Main">
                 <div className="Header-main">
                     <div className="Header-container">
                         <img src="https://i.imgur.com/6g4Ejcv.png" className="imgD" />
@@ -94,5 +102,5 @@ const mapStateToProps = reduxState => {
 }
 
 export default withRouter(connect(mapStateToProps, {
-    logOutDev, logOutEmployer
+    logOutDev, logOutEmployer, getDev, getEmployer
 })(Header))

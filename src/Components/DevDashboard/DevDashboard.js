@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../../redux/reducers/devFormReducer'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {getEmployerBySkill} from '../../redux/reducers/devFormReducer'
 
 class DevDashboard extends Component {
     constructor() {
@@ -11,7 +12,9 @@ class DevDashboard extends Component {
 
         }
     }
-
+    componentDidMount = () => {
+        this.props.getEmployerBySkill(this.props.skill1)
+    }
     render() {
         return (
             <div className="EmployerPostContainer">
@@ -44,8 +47,11 @@ class DevDashboard extends Component {
 
 const mapStateToProps = reduxState => {
     return {
-        employer: reduxState.devFormReducer.employer
+        employer: reduxState.devFormReducer.employer,
+        skill1: reduxState.loginReducer.developer.skill1
     }
 }
 
-export default connect(mapStateToProps)(DevDashboard)
+export default connect(mapStateToProps, {
+    getEmployerBySkill
+})(DevDashboard)

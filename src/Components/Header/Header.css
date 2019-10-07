@@ -2,21 +2,20 @@
     background-color: black;
     height: 90px;
     width: 90px;
+    display: flex;
+    
+    
 }
+
 
 .Header-main {
     display: flex;
     width: 100vw;
-    /* height: 150px; */
+    /* height: 10vh; */
     background-color: black;
     align-items: center;
     justify-content: space-between;
     font-family: 'Nanum Gothic Coding', monospace;
-    /* margin: 0;
-    padding: 0; */
-    
-    
-
 }
 
 .Header-list {
@@ -26,8 +25,7 @@
     width: 30vw;  
     justify-content: space-evenly;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+  
 }
 
 .Greeting {
@@ -54,10 +52,6 @@
     display: flex;
 }
 
-/* .hidden-by-default, .Open-Menu {
-    display: none;
-
-}  */
 
 div.top-menu, .top-menu-open, .top-menu.close {
  
@@ -65,7 +59,7 @@ div.top-menu, .top-menu-open, .top-menu.close {
     /* display: none; */
     position: fixed;
     top: 0;
-    right: 1.4em;
+    /* left: 1.4em; */
     display: none;
     /* transform: translateX(1610px); */
     
@@ -80,10 +74,9 @@ div.top-menu, .top-menu-open, .top-menu.close {
     /* margin-top: 10vh; */
     position: relative;
     background-color: black;
-    margin: 0;
-    padding: 0;
+    
     height: 40px;
-    width: 98%;
+    width: 100vw;
 }
 
 main {
@@ -109,15 +102,16 @@ h3 {
     margin: 0;
     padding: 0;
     height: 40px;
+    width: 100vw;
 }
 
 .Open-Menu {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-content: center;
-    width: 85vw;
-    margin: 0;
+    width: 100vw;
+
     
 }
 
@@ -126,7 +120,7 @@ h3 {
         Transform: translateX(1300px)
     } */
     to {
-        Transform: translateX(50px)
+        Transform: translateX(0px)
     }
 }
 

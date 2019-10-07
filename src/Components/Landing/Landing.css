@@ -25,7 +25,7 @@ button {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    height: 90.65vh;
     width: 100vw;
     /* background-image: url('https://birchtree.nyc3.digitaloceanspaces.com/images/wwdc18/dev-black.png'); */
     background-image: url('https://media.giphy.com/media/K5kfQExKk731K/giphy.gif');
@@ -44,12 +44,16 @@ button {
 
 @media screen and (max-width: 800px) {
     div.LandingContainer {
-        background-position-y: .3%;
-       
+        background-position-y: -12%;
+    
         
     }
 
     div.DevLogin, div.EmployeeLogin {
-        margin-top: 340px;
+        margin-top: 380px; 
+    }
+
+    div.DevLogin, div.EmployeeLogin {
+        height: 45vh;
     }
 }

@@ -61,7 +61,7 @@ class DevProfile extends Component {
     }
 
     handleChange = e => {
-        console.log(e.target.value)
+        
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -95,19 +95,20 @@ class DevProfile extends Component {
             (error, result) => {
                 this.checkUploadResult(error, result);
             })
+            console.log(this.state.developer)
         return (
             <div className="ProfileContainer">
                 <div className="Dev-Profile-Picture">
-                    {this.state.developer.map((val, index) => {
+                    {this.state.developer[0] ? this.state.developer.map((val, index) => {
                         return <img src={val.profilepic} className='Dev-Picture' />
                         
-                    })}
+                    }) :  <img src="https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg" className='Dev-Picture' />}
 
 
                 </div>
 
                 <div className="Profile-Info">
-                    {!this.state.developer.skill1 ? this.state.developer.map((val, index) => {
+                    {this.state.developer[0] ? this.state.developer.map((val, index) => {
                         return <div> <h1>{val.firstname}'s Profile</h1>
                             <h2 id="h2">Username: {val.username}</h2>
                             <h2 id="h2">Email: {val.email}</h2>
@@ -126,7 +127,7 @@ class DevProfile extends Component {
                         <h1>Add Profile Picture</h1>
                         <button onClick={() => widget.open()}>Select Image</button>
                         <button onClick={this.addPicture}>Submit</button>
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.handleSubmit} class="Function-Form">
                             <h2 id="h2">Change Username:</h2>
                             <input onChange={this.handleChange} name="username" placeholder="Username" />
                             <button type='submit' onClick={this.editDeveloperUsername}>Submit Username</button>
@@ -134,14 +135,14 @@ class DevProfile extends Component {
                             <h2 id="h2">Update Email:</h2>
                             <input name="email" onChange={this.handleChange} placeholder="Email" />
                             <button type='submit' onClick={this.editDeveloperEmail}>Submit Email</button>
-                            {console.log(this.state)}
+                           
                             <h2 id="h2">Add Github</h2>
                             <input onChange={this.handleChange} name="github" placeholder="Full link" />
                             <button type="submit" onClick={this.addGitHub}>Submit</button>
                             <div>
                                 <h2 id="h2">Delete Account</h2>
                                 <button onClick={this.deleteAccount}>Delete</button>
-                                {console.log(this.state)}
+                                
                             </div>
 
                         </form>
