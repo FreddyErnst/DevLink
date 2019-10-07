@@ -45,7 +45,7 @@ button {
 @media screen and (max-width: 800px) {
     div.LandingContainer {
         background-position-y: 0%;
-        background-size: 70%;
+        background-size: 65%;
     
         
     }
@@ -56,7 +56,8 @@ button {
 
     div.DevLogin, div.EmployeeLogin {
       height: 30vh;
-      width: 15vw;
-      margin-bottom: 100px;
+      width: 25vw;
+      margin-bottom: 90px;
+    
     }
 }
