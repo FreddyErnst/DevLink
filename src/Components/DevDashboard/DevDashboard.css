@@ -28,11 +28,6 @@
 }
 
 .EmployerImg {
-    /* display: flex;
-    justify-content: flex-start;
-    height: 25vh;
-    width: 10vw;
-    position: absolute; */
     display: inline-block;
 }
 
@@ -56,5 +51,35 @@
     background-size: cover;
     background-blend-mode: color;
     
+
+}
+
+.Email-Logo {
+    height: 50px;
+    width: 70px;
+    margin-top: 10px;
+}
+
+.Dash-Header > h1 {
+    border-bottom: 5px white solid;
+}
+
+@media screen and (max-width: 800px) {
+.EmployerPostContainer, .DevPostContainer {
+    flex-direction: column;
+    
+
+}
+
+.Dash-Header, .dash-Header {
+    margin-left: 12px;
+}
+
+.EmployerPost, .dash-Header, .Dash-Header, .DevPost{
+    width: 80vw;
+    background-position-x: 50%;
+}
+
+
 
 }

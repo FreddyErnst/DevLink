@@ -1,4 +1,5 @@
-SELECT * FROM devtech
+SELECT * from devtech 
 INNER JOIN developer
 ON devtech.developer_id = developer.developer_id
-WHERE devtech.skill1 = $1;
+WHERE skill1 = $1
+AND state = $2;

@@ -9,13 +9,13 @@ class EmployeeForm extends Component {
         super()
         this.state = {
             skill1: '',
-            primaryLanguage: ['', 'Python', 'Ruby', 'Angular', 'React', 'Javascript', 'Java', 'C++', 'C#'],
+            primaryLanguage: ['', 'Python', 'Ruby', 'Angular', 'React', 'Javascript', 'Java', 'C++', 'C#', 'Swift', 'PHP', 'Rust'],
             skill2: '',
             primaryStyle: ['', 'Vanilla CSS', 'Flex', 'SASS', 'BootStrap', 'Bulma', 'Tailwind', 'Normalize'],
             skill3: '',
             backendLanguage: ['', 'NodeJS', 'PHP', "Java", 'Ruby'],
             skill4: '',
-            databaseLanguage: ['', 'SQL', 'MongoDB', 'Oracle'],
+            databaseLanguage: ['', 'MYSQL','Oracle', 'MS Access', 'dBase', 'FoxPro'],
             experience: '',
             exp: ['', '6 Months', '1 Year', '2-3 Years', '5 Years +'],
             length: '',
@@ -79,7 +79,7 @@ class EmployeeForm extends Component {
                         <h1>Click Here to get started</h1> <button onClick={this.handleIncrement}>Next</button>
                     </div>
 
-                    case 1: return <div><h1>Select your primary development language</h1>
+                    case 1: return <div><h1>Primary development language</h1>
                         <select onChange={this.handleChange} name='skill1'>
                             {this.state.primaryLanguage.map(val => <option value={val}>{val}</option>)}
                         </select>
@@ -91,7 +91,7 @@ class EmployeeForm extends Component {
                     </div>
 
                     case 2: return <div>
-                        <h4>Select your primary styling language</h4>
+                        <h4>Styling</h4>
                         <select onChange={this.handleChange} name="skill2">
                             {this.state.primaryStyle.map(val => <option value={val}>{val}</option>)}
                         </select>
@@ -103,7 +103,7 @@ class EmployeeForm extends Component {
                     </div>
 
                     case 3: return <div>
-                        <h4>Select your Backend Language</h4>
+                        <h4>Preferred Backend Language</h4>
                         <select onChange={this.handleChange} name='skill3'>
                             {this.state.backendLanguage.map(val => <option value={val}>{val}</option>)}
                         </select>
@@ -115,7 +115,7 @@ class EmployeeForm extends Component {
                     </div>
 
                     case 4: return <div>
-                        <h4>Please select Database Language</h4>
+                        <h4>Database</h4>
                         <select onChange={this.handleChange} name='skill4'>
                             {this.state.databaseLanguage.map(val => <option value={val}>{val}</option>)}
                         </select>
@@ -127,7 +127,7 @@ class EmployeeForm extends Component {
                     </div>
 
                     case 5: return <div>
-                        <h4>How much Experience do you have?</h4>
+                        <h4>How much Experience are you looking for ?</h4>
                         <select onChange={this.handleChange} name='experience'>
                             {this.state.exp.map(val => <option value={val}>{val}</option>)}
                         </select>

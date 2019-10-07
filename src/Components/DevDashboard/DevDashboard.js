@@ -17,12 +17,15 @@ class DevDashboard extends Component {
             <div className="EmployerPostContainer">
                 <div className="Dash-Header">
                 <h1>Employers looking for developers</h1>
-                <input placeholder='Search by location'/>
+                
                 </div>
                 {this.props.employer ? this.props.employer.map((val, index) => {
                     return <div className="EmployerPost">
                         <div className='EmployerImg'><img src={val.profilepic} className="Employer-Image"/></div>
-                        <Link to ='/Email'>Email me!</Link>
+                        <div>
+                        <Link to ='/Email'><img src= "https://1000logos.net/wp-content/uploads/2018/04/Symbol-Gmail.jpg" className="Email-Logo"/></Link>
+                        <a href={val.github} target="_blank"><img src = 'https://image.flaticon.com/icons/svg/25/25231.svg' className="GitHub"/></a>
+                        </div>
                         <h3>{val.firstname} {val.lastname}</h3>
                         <h4>{val.bio}</h4>
                         <h4>Primary Language: {val.skill1}</h4>

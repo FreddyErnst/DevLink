@@ -49,7 +49,7 @@ app.post('/api/email', (req, res) => {
                 user: 'Nodemailer1723@gmail.com',
                 pass: 'Nib87nib87nib87'
             }
-           
+        
         })
         let mailOptions = {
             
@@ -103,6 +103,7 @@ app.put('/api/developer/email', Devcontroller.editDevEmail)
 app.delete('/auth/developer/', Devcontroller.deleteDeveloper)
 app.post('/api/developer/picture', Devcontroller.addDevPicture)
 app.get('/api/developer/info', Devcontroller.uniqueDevInformation)
+app.post('/api/developer/github', Devcontroller.addDevGitHub)
 
 //Employer Profile
 app.put('/api/employer/username', EmployeeController.editEmployerUsername)
@@ -110,10 +111,12 @@ app.put('/api/employer/email', EmployeeController.editEmployerEmail)
 app.delete('/auth/employer', EmployeeController.deleteEmployer)
 app.get('/api/employer/info', EmployeeController.uniqueEmployerInfo)
 app.post('/api/employer/picture', EmployeeController.addEmployerPicture)
+app.post('/api/employer/github', EmployeeController.addEmployerGitHub)
 
 //Employer Dashboard
 app.get('/api/Developers', Devcontroller.getDevs)
 //Dev Dashboard
+app.get('/api/developers/State', Devcontroller.searchByState)
 // app.get('/api/Employers', EmployeeController.getEmployers)
 
 app.listen(SERVER_PORT, () => {

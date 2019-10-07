@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Form, FormGroup, Input, Label, Button} from 'reactstrap'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 
 export default class EmailForm extends Component {
@@ -19,6 +20,10 @@ export default class EmailForm extends Component {
         })
     }
 
+    goBack = () => {
+        this.props.history.goBack();
+    }
+
     handleSubmit = e => {
         e.preventDefault()
 
@@ -33,7 +38,12 @@ export default class EmailForm extends Component {
     render() {
         return (
             <div className="Email-Container">
+                <div>
+                <button onClick={this.goBack} className="Email-Goback"><h1>Go back!</h1></button>
+                </div>
+            
         <Form onSubmit={this.handleSubmit} className="Email-Form">
+        
             <FormGroup>
                 <Label for="name">Name:</Label>
                 <Input 

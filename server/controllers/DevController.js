@@ -11,6 +11,7 @@ module.exports = {
         const {skill1} = req.params
         
         const uniqueDevSkill = await db.getDevPostBySkill(skill1)
+        console.log(uniqueDevSkill)
         res.status(200).json(uniqueDevSkill)
         console.log(uniqueDevSkill)
     },
@@ -80,5 +81,20 @@ module.exports = {
         const {developer_id} = req.session.developer
         const devInfo = await db.getUniqueDevInfo(developer_id)
         res.status(200).json(devInfo)
-    }
+    },
+
+    searchByState: async (req, res) => {
+        const {skill1, state} = req.body
+        const db = req.app.get('db')
+        const stateSearch = await db.searchByState(skill1, state)
+        res.status(200).json(stateSearch)
+    },
+
+    addDevGitHub: async (req, res) => {
+        const {github} = req.body
+        const {developer_id} = req.session.developer
+        const db = req.app.get('db')
+        const addGitHub = await db.addGithubDev(github, developer_id)
+        res.status(200).json(addGitHub)
+    } 
 }

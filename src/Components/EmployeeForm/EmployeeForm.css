@@ -24,6 +24,7 @@
     align-items: center;
     background-image: url('https://iamkwame.com/wp-content/uploads/2019/08/wordpress-3288414.jpg');
     background-size: cover;
+    background-position-y:5%;
     
 }
 
@@ -49,3 +50,8 @@ select {
 }
 
 
+@media screen and  (max-width: 800px) {
+    div.EmployerForm > div {
+        background-position-x: 15%;
+    }
+}

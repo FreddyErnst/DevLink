@@ -76,4 +76,12 @@ module.exports = {
         res.status(200).json(addPicture)
     },
 
+    addEmployerGitHub: async (req, res) => {
+        const {github} = req.body
+        const {employer_id} = req.session.employer
+        const db = req.app.get('db')
+        const addEmployerGitHub = await db.addEmployerGithub(github, employer_id)
+        res.status(200).json(addEmployerGitHub)
+    } 
 }
+

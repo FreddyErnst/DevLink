@@ -1,17 +1,23 @@
-input {
+
+#button {
     border-radius: 20px 20px;
+    width: 120px;
+    margin-top: 10px;
 }
 
 button {
     border-radius: 20px 20px;
+    
 }
 .DevLogin, .EmployeeLogin {
     height: 40vh;
-    width: 40vw;
+    width: 20vw;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     color: white;
+   
+   
 }
 
 .LandingContainer {
@@ -19,17 +25,31 @@ button {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
     width: 100vw;
-    background-image: url('https://birchtree.nyc3.digitaloceanspaces.com/images/wwdc18/dev-black.png');
-     background-size: cover;
+    /* background-image: url('https://birchtree.nyc3.digitaloceanspaces.com/images/wwdc18/dev-black.png'); */
+    background-image: url('https://media.giphy.com/media/K5kfQExKk731K/giphy.gif');
+     background-size: fill;
      background-position: center center;
      background-repeat: no-repeat;
-     background-attachment: fixed;
+     /* background-attachment: inherit; */
 }
 
 .DevLogin, .EmployeeLogin {
     display: flex;
     align-content: center;
     align-items: center;
+    
+}
+
+@media screen and (max-width: 800px) {
+    div.LandingContainer {
+        background-position-y: .3%;
+       
+        
+    }
+
+    div.DevLogin, div.EmployeeLogin {
+        margin-top: 340px;
+    }
 }

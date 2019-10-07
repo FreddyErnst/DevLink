@@ -11,7 +11,9 @@ class EmployerProfile extends Component {
             email: '',
             deletedAccount: false,
             employer: [],
-            profilepic: ''
+            profilepic: '',
+            github: ''
+            
 
 
         }
@@ -22,6 +24,12 @@ class EmployerProfile extends Component {
             profilepic: this.state.profilepic
         })
         alert('Photo updated!')
+    }
+
+    addGitHub = () => {
+        Axios.post('/api/employer/github', {
+            github: this.state.github
+        })
     }
 
     componentDidMount() {
@@ -69,27 +77,56 @@ class EmployerProfile extends Component {
                 this.checkUploadResult(error, result);
             })
         return (
-            <div className="EmpProfileContainer">
-                {/* <div className='EmpProfileContainer'> */}
+            <div className="ProfileContainer">
+                <div className="Employer-Profile-Picture">
                     {this.state.employer.map((val, index) => {
-                        return <div className="Emp-Profile-Picture"><img src={val.profilepic} className="Emp-Picture" /></div>
+                        return <img src={val.profilepic} className='Employer-Picture' onerror="this.src='https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg'" />
+                        
                     })}
-                
-                        <button onClick={() => widget.open()}>Select Image</button>
-                        <button onClick={this.addPicture} type='submit'>Submit</button>
-                
-                    <div className='Prof-Container' />
-                    <form onSubmit={this.handleSubmit}>
-                        <h2>Update Username:</h2>
-                        <input onChange={this.handleChange} name='username' />
-                        <button type='submit' onClick={this.editEmployerUsername}>Submit Username</button>
-                        <h2>Update Email:</h2>
-                        <input onChange={this.handleChange} name='email' />
-                        <button type='submit' onClick={this.editEmployerEmail}>Submit Email</button>
-                    </form>
+                </div>
+                <div className="Profile-Info">
+                    {this.state.employer.map((val, index) => {
+                        return <div> <h1>{val.firstname}'s Profile</h1>
+                            <h2 id="h2">Username: {val.username}</h2>
+                            <h2 id="h2">Email: {val.email}</h2>
+                            <h2 id="h2">Primary Language: {val.skill1}</h2>
+                            <h2 id="h2">Current Location: {val.state}</h2>
+                            <h2 id="h2">Current Experience: {val.experience}</h2>
+                            <a href={val.github} target="_blank">Github</a>
+                        </div>
+                    })}
+                </div>
 
-                {/* </div> */}
-                {console.log(this.state)}
+                <div className="Profile-Functions">
+
+                    <div className="Picture-Buttons">
+                        <h1>Add Profile Picture</h1>
+                        <button onClick={() => widget.open()}>Select Image</button>
+                        <button onClick={this.addPicture}>Submit</button>
+                        <form onSubmit={this.handleSubmit}>
+                            <h2 id="h2">Change Username:</h2>
+                            <input onChange={this.handleChange} name="username" />
+                            <button type='submit' onClick={this.editEmployerUsername}>Submit Username</button>
+
+                            <h2 id="h2">Update Email:</h2>
+                            <input name="email" onChange={this.handleChange} />
+                            <button type='submit' onClick={this.editEmployerEmail}>Submit Email</button>
+                            <h2 id="h2">Add Github</h2>
+                            <input onChange={this.handleChange} name="github" placeholder="Full link" />
+                            <button type="submit" onClick={this.addGitHub}>Submit</button>
+                            {console.log(this.state)}
+                            <div>
+                    <h2 id="h2">Delete Account</h2>
+                    <button onClick={this.deleteAccount}>Delete</button>
+
+                </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
             </div>
         )
     }

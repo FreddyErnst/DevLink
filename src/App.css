@@ -7,3 +7,16 @@
 
 }
 
+input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  color : white;
+}
+
+button {
+  background: black;
+  color: white;
+}
+
+

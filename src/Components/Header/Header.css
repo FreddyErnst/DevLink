@@ -15,6 +15,7 @@
     /* margin: 0;
     padding: 0; */
     
+    
 
 }
 
@@ -32,6 +33,7 @@
 .Greeting {
     display: flex;
     justify-content: center;
+
     color: white;
     margin: 0;
     padding: 0;
@@ -58,12 +60,13 @@
 }  */
 
 div.top-menu, .top-menu-open, .top-menu.close {
-    width: 0vw;
+ 
     /* height: 32vh; */ 
     /* display: none; */
     position: fixed;
     top: 0;
     right: 1.4em;
+    display: none;
     /* transform: translateX(1610px); */
     
 }
@@ -146,12 +149,12 @@ h3 {
     }
     
     .top-menu-open{
-        /* z-index: 10; */
+        display: block;
     }
-    .top-menu-close{
-        /* z-index:-2; */
-    } 
+    
 }
+
+
 
 @media (min-width: 1100.1px) {
     .top-menu-close, .top-menu-open{

@@ -9,13 +9,13 @@ class DevForm extends Component {
         super()
         this.state = {
             skill1: '',
-            primaryLanguage: ['', 'Python', 'Ruby', 'Angular', 'React', 'Javascript', 'Java', 'C++', 'C#'],
+            primaryLanguage: ['', 'Python', 'Ruby', 'Angular', 'React', 'Javascript', 'Java', 'C++', 'C#', 'Swift', 'PHP', 'Rust',],
             skill2: '',
             primaryStyle: ['', 'Vanilla CSS', 'Flex', 'SASS', 'BootStrap', 'Bulma', 'Tailwind', 'Normalize'],
             skill3: '',
             backendLanguage: ['', 'NodeJS', 'PHP', "Java", 'Ruby'],
             skill4: '',
-            databaseLanguage: ['', 'SQL', 'MongoDB', 'Oracle'],
+            databaseLanguage: ['', 'MYSQL','Oracle', 'MS Access', 'dBase', 'FoxPro'],
             experience: '',
             exp: ['', '6 Months', '1 Year', '2-3 Years', '5 Years +'],
             length: '',
@@ -77,7 +77,7 @@ class DevForm extends Component {
                 {(() => {
                     switch (this.state.num) {
                         case 0: return <div>
-                            <h1>Click Here to get started</h1> <button onClick={this.handleIncrement}>
+                            <h1>Click here to get started</h1> <button onClick={this.handleIncrement}>
                                 Start
                             </button>
                         </div>
@@ -106,7 +106,7 @@ class DevForm extends Component {
                         </div>
 
                         case 3: return <div>
-                            <h1>Select your Backend Language</h1>
+                            <h1>Select your backend language</h1>
                             <select onChange={this.handleChange} name='skill3'>
                                 {this.state.backendLanguage.map(val => <option value={val}>{val}</option>)}
                             </select>
@@ -118,7 +118,7 @@ class DevForm extends Component {
                         </div>
 
                         case 4: return <div>
-                            <h1>Please select Database Language</h1>
+                            <h1>Please select database preference</h1>
                             <select onChange={this.handleChange} name='skill4'>
                                 {this.state.databaseLanguage.map(val => <option value={val}>{val}</option>)}
                             </select>
@@ -168,7 +168,7 @@ class DevForm extends Component {
 
                         case 8: return <div><h1>Enter bio</h1>
 
-                            <input className='employerInput' placeholder="Bio" name='bio' onChange={this.handleChange}></input>
+                            <input className='employerInput' placeholder="Bio" name='bio' onChange={this.handleChange} placeholder="Bio"></input>
                             <div>
                                 <button onClick={this.handleDecrement}>Previous</button>
                                 <button type='submit' onClick={this.handleDevFormSubmit}>Submit</button>

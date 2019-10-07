@@ -135,7 +135,7 @@ export class Landing extends Component {
                 {/* <button onClick={this.clickedRegister}>Register Account</button> */}
                 
                 
-                <button onClick={this.handleDevLogin}>Login</button>
+                <button onClick={this.handleDevLogin} id="button">Login</button>
                 <label>First Name:</label>
                 <input
                 name="firstname"
@@ -172,7 +172,7 @@ export class Landing extends Component {
                 
                 ></input>
                 <div>
-                <button onClick={this.handleDevRegister}>Register</button>
+                <button onClick={this.handleDevRegister} id="button">Register</button>
             
                 </div>
             </div>
@@ -192,7 +192,7 @@ export class Landing extends Component {
                 onChange={this.handleChange}
                 
                 ></input>
-                <button onClick={this.handleEmployerLogin}>Login</button>
+                <button onClick={this.handleEmployerLogin} id="button">Login</button>
                 <label>First Name:</label>
                 <input
                 name="firstname"
@@ -229,7 +229,7 @@ export class Landing extends Component {
                 
                 ></input>
                 <div>
-                <button onClick={this.handleEmployerRegister}>Register</button>
+                <button onClick={this.handleEmployerRegister} id="button">Register</button>
                 </div>
 
             </div>

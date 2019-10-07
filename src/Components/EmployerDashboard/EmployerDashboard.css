@@ -1,18 +1,24 @@
 .DevPost {
-  
+
     display: flex;
     flex-direction: column;
     border: 1px white solid;
     height: 50vh;
     width: 35vw;
     margin-top: 10px;
-    background: lightblue;
-    color: black;
-    Overflow: scroll;
+    background: black;
+    color: white;
+    Overflow: auto;
     border-radius: 2%;
     margin-left: 15px;
     
 
+}
+.GitHub {
+    height: 50px;
+    width: 70px;
+    filter: invert(100%);
+    
 }
 
 .DevPostContainer {
@@ -23,8 +29,11 @@
     align-items: center;
     background: black;
     color: white;
-    height: 100%;
+
+    width: 100vw;
+    min-height: 100vh;
     margin-top: 50px;
+    font-family: 'Nanum Gothic Coding', monospace;
 
 
     
@@ -49,11 +58,26 @@
     width: 35vw;
     border: .5px white solid;
     border-radius: 3%;
-    margin-right: 10px;
+   margin-left: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url('https://andrehost.com.br/wp-content/uploads/2018/01/6-bibliotecas-javascript-para-desenvolvimento-web.png');
+    background-position-x: 30%;
+    background-size: cover;
+    background-blend-mode: color;
+    
     
 }
 
+
+.Email-Logo {
+    height: 50px;
+    width: 70px;
+    margin-top: 10px;
+}
+
+.dash-Header > h1 {
+    border-bottom: 5px white solid;
+}
