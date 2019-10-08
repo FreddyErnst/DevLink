@@ -15,7 +15,7 @@ class EmployerProfile extends Component {
             employer: [],
             profilepic: '',
             github: '',
-            employerPicture: false
+        
             
             
 
@@ -23,15 +23,13 @@ class EmployerProfile extends Component {
         }
     }
     addPicture = () => {
-       
+    
         Axios.post('/api/employer/picture', {
             profilepic: this.state.profilepic
         })
-        this.setState({
-            employerPicture: true
-        })
     
-      
+    
+    
         alert('Photo updated!')
         window.location.reload()
     
@@ -90,8 +88,8 @@ class EmployerProfile extends Component {
             console.log("Picture uploaded successfully")
             console.log(resultEvent.info.url);
             this.setState({ profilepic: resultEvent.info.url
-               
-             });
+            
+            });
         }
     }
     render() {
@@ -99,7 +97,7 @@ class EmployerProfile extends Component {
             return <Redirect to='/' />
         }
 
-       
+    
         const widget = window.cloudinary.createUploadWidget(
             {
                 cloudName: "dpindjuxl",
