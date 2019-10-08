@@ -10,9 +10,15 @@
     Overflow: auto ;
     border-radius: 2%;
     margin-left: 15px;
-    scrollbar-face-color: #000000;
-    
+ 
 }
+
+.EmployerPost::-webkit-scrollbar {
+    width: .02em;
+}
+
+
+
 
 .EmployerPostContainer {
     display: flex;

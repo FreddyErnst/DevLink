@@ -30,7 +30,7 @@
     align-self: center;
     /* margin-right: 10vw; */
     color: white;
-    overflow: auto;
+    overflow: scroll;
     
 
 }

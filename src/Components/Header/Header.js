@@ -69,8 +69,10 @@ class Header extends React.Component {
                             {this.props.employer.username ? <button onClick={this.handleEmployerLogOut}>LogOut</button> : null}
 
                             <li className="Hamburger hidden-by-default">
-                                <img src="https://library.kissclipart.com/20180830/oyw/kissclipart-hamburger-icon-white-clipart-hamburger-button-comp-867a6f7cf898addd.jpg" className='Hamburger-Button' alt="Hamburger-Button"
-                                    onClick={this.toggleMenu} />
+
+                                {this.props.employer.firstname || this.props.developer.firstname ? <img src="https://library.kissclipart.com/20180830/oyw/kissclipart-hamburger-icon-white-clipart-hamburger-button-comp-867a6f7cf898addd.jpg" className='Hamburger-Button' alt="Hamburger-Button"
+                                    onClick={this.toggleMenu} /> : null}
+                                
                             </li>
                         </ul>
                     </div>
