@@ -20,7 +20,7 @@ export function addEmployerForm(skills) {
     
 }
 export function getDevBySkill(skill1) {
-  
+
     return {
         type: GET_DEV_BY_SKILL,
         payload: axios.get(`/api/devpost/${skill1}`)
