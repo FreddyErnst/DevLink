@@ -10,12 +10,12 @@
     Overflow: auto ;
     border-radius: 2%;
     margin-left: 15px;
- 
+
 }
 
-.EmployerPost::-webkit-scrollbar {
+/* .EmployerPost, .DevPost::-webkit-scrollbar {
     width: .02em;
-}
+} */
 
 
 

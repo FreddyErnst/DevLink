@@ -115,6 +115,8 @@ app.delete('/auth/employer', EmployeeController.deleteEmployer)
 app.get('/api/employer/info', EmployeeController.uniqueEmployerInfo)
 app.post('/api/employer/picture', EmployeeController.addEmployerPicture)
 app.post('/api/employer/github', EmployeeController.addEmployerGitHub)
+app.get('/api/employer/pic', EmployeeController.getEmployerPicture)
+
 
 //Employer Dashboard
 app.get('/api/Developers', Devcontroller.getDevs)

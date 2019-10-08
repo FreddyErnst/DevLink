@@ -10,9 +10,14 @@
     color: white;
     Overflow: auto;
     border-radius: 2%;
-    margin-left: 15px;
+    margin-left: 20px;
+    margin-bottom: 11px;
     
 
+}
+
+.DevPostContainer::-webkit-scrollbar {
+    width: .02em;
 }
 .GitHub {
     height: 50px;
@@ -20,6 +25,8 @@
     filter: invert(100%);
     
 }
+
+
 
 .DevPostContainer {
     display: flex;
@@ -58,7 +65,7 @@
     width: 35vw;
     border: .5px white solid;
     border-radius: 3%;
-   margin-left: 5px;
+    margin-left: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,6 +74,7 @@
     background-position-x: 30%;
     background-size: cover;
     background-blend-mode: color;
+    
     
     
 }

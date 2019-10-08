@@ -2,10 +2,11 @@ import axios from 'axios'
 
 const initialState = {
     devPost: {},
-    employer: []
+    employer: [],
+    shouldRedirect: false
 }
 
-const ADD_DEVELOPER_FORM = "UPDATE_DEVELOPER_FORM"
+const ADD_DEVELOPER_FORM = "ADD_DEVELOPER_FORM"
 const UPDATE_DEVELOPER_FORM = "UPDATE_DEVELOPER_FORM"
 const UPDATE_DEVELOPER_USERNAME = "UPDATE_DEVELOPER_USERNAME"
 const UPDATE_DEVELOPER_EMAIL = "UPDATE_DEVELOPER_EMAIL"
@@ -50,11 +51,13 @@ export function updateDeveloperEmail (email) {
 }
 
 export default function reducer (state=initialState, action) {
+    // debugger;
     console.log(action.payload)
     switch(action.type) {
         case `${ADD_DEVELOPER_FORM}_FULFILLED`: 
             return {
                 ...state,
+                shouldRedirect: true,
                 devPost: action.payload.data
             }
             case UPDATE_DEVELOPER_USERNAME: 
@@ -65,14 +68,17 @@ export default function reducer (state=initialState, action) {
             return {
                 ...state,
             }
-            case UPDATE_DEVELOPER_FORM: 
+            case `${UPDATE_DEVELOPER_FORM}_FULFILLED`: 
+            console.log(action.payload.data);
             return {
                 ...state,
+                shouldRedirect: true,
                 devPost: action.payload.data
             }
             case `${GET_EMPLOYER_BY_SKILL}_FULFILLED`: {
                 return {
                     ...state,
+                    shouldRedirect: false,
                     employer: action.payload.data
                 }
             }

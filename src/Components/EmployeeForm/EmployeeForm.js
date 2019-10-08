@@ -68,7 +68,7 @@ class EmployeeForm extends Component {
         })
     }
     render() {
-        if (this.state.didClick === true) {
+        if (this.props.shouldRedirect === true) {
             return <Redirect to='/EmployerDashboard'/>
         }
         return (
@@ -183,7 +183,9 @@ class EmployeeForm extends Component {
     }
 }
 
-export default connect(null, {
+export default connect(state => ({
+    shouldRedirect: state.employerFormReducer.shouldRedirect
+}), {
     updateEmployerForm, addEmployerForm, getDevBySkill
 })(EmployeeForm)
 

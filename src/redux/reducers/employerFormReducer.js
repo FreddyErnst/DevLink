@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const initialState = {
     employerPost: {},
-    developer: []
+    developer: [],
+    shouldRedirect: false
 }
 
 const ADD_EMPLOYER_FORM = "ADD_EMPLOYER_FORM"
@@ -48,11 +49,12 @@ export function updateEmployerForm(skills) {
     }
 }
 export default function reducer (state=initialState, action) {
-   
+
     switch(action.type) {
         case `${ADD_EMPLOYER_FORM}_FULFILLED`: {
             return {
                 ...state,
+                shouldRedirect: true,
                 employerPost: action.payload.data
             }
         
@@ -64,15 +66,17 @@ export default function reducer (state=initialState, action) {
             return {
                 ...state
             }
-        } case UPDATE_EMPLOYER_FORM: {
+        } case `${UPDATE_EMPLOYER_FORM}_FULFILLED`: {
             return {
                 ...state,
+                shouldRedirect: true,
                 employerPost: action.payload.data
             }
         }  case `${GET_DEV_BY_SKILL}_FULFILLED`: {
-       
+    
             return {
                 ...state,
+                shouldRedirect: false,
                 developer: action.payload.data
 
             }

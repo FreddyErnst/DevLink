@@ -1,6 +1,6 @@
 module.exports = {
 
-   
+
     getEmployerPosts: async (req, res) => {
         const db = req.app.get('db')
         // const {employer_id} = req.session.employer
@@ -49,7 +49,7 @@ module.exports = {
     },
 
     deleteEmployer: async (req, res) => {
-        const {employer_id} = req.session.developer
+        const {employer_id} = req.session.employer
         const db = req.app.get('db')
         await db.deleteEmployer(employer_id)
         res.sendStatus(200)
@@ -84,6 +84,14 @@ module.exports = {
         const db = req.app.get('db')
         const addEmployerGitHub = await db.addEmployerGithub(github, employer_id)
         res.status(200).json(addEmployerGitHub)
-    } 
+    },
+
+    getEmployerPicture: async (req, res) => {
+        const {employer_id} = req.session.employer
+        const db = req.app.get('db')
+        const employerPicture = db.getEmployerPicture(employer_id)
+        res.status(200).json(employerPicture)
+    }
+
 }
 

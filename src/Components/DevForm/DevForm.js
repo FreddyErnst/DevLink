@@ -34,6 +34,7 @@ class DevForm extends Component {
 
     handleDevFormSubmit = () => {
         this.props.addDevForm(this.state)
+        // console.log(this.state.skill1)
         this.props.getEmployerBySkill(this.state.skill1)
         this.setState({
             didClick: true
@@ -69,7 +70,7 @@ class DevForm extends Component {
     }
 
     render() {
-        if (this.state.didClick === true) {
+        if (this.props.shouldRedirect === true) {
             return <Redirect to='/DevDashboard'/>
         }
         return (
@@ -184,6 +185,8 @@ class DevForm extends Component {
         )
     }
 }
-export default connect(null, {
+export default connect(state => ({
+    shouldRedirect: state.devFormReducer.shouldRedirect
+}), {
     updateDevForm, addDevForm, getEmployerBySkill
 })(DevForm)

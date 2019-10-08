@@ -13,7 +13,14 @@ class DevDashboard extends Component {
         }
     }
     componentDidMount = () => {
-        this.props.getEmployerBySkill(this.props.skill1)
+        console.log("optskill", this.props.optSkill1);
+        if(this.props.optSkill1 !== undefined) {
+            console.log("optskill", this.props.optSkill1);
+            this.props.getEmployerBySkill(this.props.optSkill1.skill1)
+        } else {
+            console.log("reg skill", this.props.skill1);
+            this.props.getEmployerBySkill(this.props.skill1)
+        }
     }
     render() {
         return (
@@ -46,9 +53,11 @@ class DevDashboard extends Component {
 }
 
 const mapStateToProps = reduxState => {
+    console.log(reduxState);
     return {
         employer: reduxState.devFormReducer.employer,
-        skill1: reduxState.loginReducer.developer.skill1
+        skill1: reduxState.loginReducer.developer.skill1,
+        optSkill1: reduxState.devFormReducer.devPost[0]
     }
 }
 

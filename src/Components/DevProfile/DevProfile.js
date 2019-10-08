@@ -99,7 +99,7 @@ class DevProfile extends Component {
         return (
             <div className="ProfileContainer">
                 <div className="Dev-Profile-Picture">
-                    {this.state.developer[0] ? this.state.developer.map((val, index) => {
+                    {this.state.developer[0]? this.state.developer.map((val, index) => {
                         return <img src={val.profilepic} className='Dev-Picture' />
                         
                     }) :  <img src="https://t3.ftcdn.net/jpg/00/64/67/52/240_F_64675209_7ve2XQANuzuHjMZXP3aIYIpsDKEbF5dD.jpg" className='Dev-Picture' />}

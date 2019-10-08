@@ -11,6 +11,7 @@ const UPDATE_EMPLOYER = "UPDATE_EMPLOYER"
 const LOGOUT_DEV = "LOGOUT_DEV"
 const LOGOUT_EMPLOYER = "LOGOUT_EMPLOYER"
 const DELETE_DEVELOPER_ACCOUNT = "DELETE_DEVELOPER_ACCOUNT"
+const DELETE_EMPLOYER_ACCOUNT = "DELETE_EMPLOYER_ACCOUNT"
 const GET_DEV = "GET_DEVELOPER"
 const GET_EMPLOYER = "GET_EMPLOYER"
 
@@ -76,6 +77,13 @@ export function deleteDeveloperAccount () {
     }
 }
 
+export function deleteEmployerAccount () {
+    return {
+        type: DELETE_EMPLOYER_ACCOUNT,
+        payload: Axios.delete('/auth/employer')
+    }
+}
+
 export default function reducer (state=initialState, action) {
    
     switch(action.type) {
@@ -107,6 +115,11 @@ export default function reducer (state=initialState, action) {
                 ...state,
                 developer: {}
                 
+            }
+            case `${DELETE_EMPLOYER_ACCOUNT}_FULFILLED`: 
+            return {
+                ...state,
+                employer: {}
             }
 
             case `${GET_DEV}_FULFILLED`:
