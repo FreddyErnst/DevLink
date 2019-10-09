@@ -19,6 +19,7 @@ class EmployeeForm extends Component {
             experience: '',
             exp: ['', '6 Months', '1 Year', '2-3 Years', '5 Years +'],
             length: '',
+            lengthOfJob: ['', 'Short-term', 'Long-Term'],
             bio: '',
             state: '',
             states: ["", "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC",
@@ -141,9 +142,7 @@ class EmployeeForm extends Component {
                     case 6: return <div>
                         <h4>Length of job</h4>
                         <select onChange={this.handleChange} name='length'>
-                            <option></option>
-                            <option value="Short-term">Short-term</option>
-                            <option value="Long-term">Long-term</option>
+                            {this.state.lengthOfJob.map(val => <option value={val}>{val}</option>)}
                         </select>
                         <div>
                         

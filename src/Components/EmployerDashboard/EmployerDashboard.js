@@ -42,7 +42,7 @@ class EmployerDashboard extends Component {
 
                         <h3>Primary Language: {val.skill1}</h3>
                         <h4>Styling Language: {val.skill2}</h4>
-                        <h4>Database language: {val.skill3}</h4>
+                        <h4>Backend language: {val.skill3}</h4>
                         <h4>DataBase language: {val.skill4}</h4>
                         <h4>Current experience: {val.experience}</h4>
                         <h4>Length of job: {val.joblength}</h4>
