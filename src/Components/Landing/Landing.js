@@ -138,6 +138,7 @@ export class Landing extends Component {
                 <button onClick={this.handleDevLogin} id="button">Login</button>
                 <label>First Name:</label>
                 <input
+                autoComplete = "off"
                 name="firstname"
                 placeholder="First Name"
                 onChange={this.handleChange}
@@ -145,6 +146,7 @@ export class Landing extends Component {
                 ></input>
                 <label>Last Name:</label>
                 <input
+                autoComplete = "off"
                 name="lastname"
                 placeholder="Last Name"
                 onChange={this.handleChange}
@@ -152,6 +154,7 @@ export class Landing extends Component {
                 />
                 <label>Email:</label>
                 <input
+                autoComplete = "off"
                 name="email"
                 placeholder="Email"
                 onChange={this.handleChange}
@@ -159,12 +162,15 @@ export class Landing extends Component {
                 />
                 <label>Username:</label>
                 <input
+                autoComplete = "off"
                 name="username"
                 placeholder="Username"
                 onChange={this.handleChange}
                 />
                 <label>Password:</label>
                 <input
+                autoComplete = "off"
+                
                 type = "password"
                 name="password"
                 placeholder="Password"
@@ -187,6 +193,8 @@ export class Landing extends Component {
                 />
                 <label>Password:</label>
                 <input
+                type="password"
+                autoComplete = "off"
                 name="password"
                 placeholder="Password"
                 onChange={this.handleChange}
@@ -195,6 +203,7 @@ export class Landing extends Component {
                 <button onClick={this.handleEmployerLogin} id="button">Login</button>
                 <label>First Name:</label>
                 <input
+                autoComplete = "off"
                 name="firstname"
                 placeholder="First Name"
                 onChange={this.handleChange}
@@ -202,6 +211,7 @@ export class Landing extends Component {
                 />
                 <label>Last Name:</label>
                 <input
+                autoComplete = "off"
                 name="lastname"
                 placeholder="Last Name"
                 onChange={this.handleChange}
@@ -209,6 +219,7 @@ export class Landing extends Component {
                 />
                 <label>Email:</label>
                 <input
+                autoComplete = "off"
                 name="email"
                 placeholder="Email"
                 onChange={this.handleChange}
@@ -216,12 +227,14 @@ export class Landing extends Component {
                 />
                 <label>Username:</label>
                 <input
+                autoComplete = "off"
                 name="username"
                 placeholder="Username"
                 onChange={this.handleChange}
                 />
                 <label>Password:</label>
                 <input
+                autoComplete = "off"
                 type="password"
                 name="password"
                 placeholder="Password"

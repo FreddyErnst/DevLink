@@ -73,6 +73,7 @@ class DevProfile extends Component {
             profilepic: this.state.profilepic
         })
         alert('Photo updated!')
+        window.location.reload()
     }
 
     checkUploadResult = (error, resultEvent) => {
@@ -95,7 +96,7 @@ class DevProfile extends Component {
             (error, result) => {
                 this.checkUploadResult(error, result);
             })
-            console.log(this.state.developer)
+        
         return (
             <div className="ProfileContainer">
                 <div className="Dev-Profile-Picture">
@@ -115,7 +116,7 @@ class DevProfile extends Component {
                             <h2 id="h2">Primary Language: {val.skill1}</h2>
                             <h2 id="h2">Current Location: {val.state}</h2>
                             <h2 id="h2">Current Experience: {val.experience}</h2>
-                            <a href={val.github} target="_blank">Github</a>
+                            <a href={val.github} target="_blank" alt="Profile Picture">Github</a>
 
                         </div>
                     }) : <h1>Please fill in the form</h1>}

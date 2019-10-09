@@ -125,7 +125,6 @@ class EmployerProfile extends Component {
                             <h2 id="h2">Email: {val.email}</h2>
                             <h2 id="h2">Primary Language: {val.skill1}</h2>
                             <h2 id="h2">Current Location: {val.state}</h2>
-                            <h2 id="h2">Current Experience: {val.experience}</h2>
                             <a href={val.github} target="_blank">Github</a>
                         </div>
                     }): <h1>Please fill in the form</h1>}

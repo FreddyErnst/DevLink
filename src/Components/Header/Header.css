@@ -7,6 +7,9 @@
     
 }
 
+.name {
+    margin-bottom: 35px;
+}
 
 .Header-main {
     display: flex;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { updateDevForm, addDevForm, getEmployerBySkill } from '../../redux/reducers/devFormReducer'
 
@@ -15,7 +15,7 @@ class DevForm extends Component {
             skill3: '',
             backendLanguage: ['', 'NodeJS', 'PHP', "Java", 'Ruby'],
             skill4: '',
-            databaseLanguage: ['', 'MYSQL','Oracle', 'MS Access', 'dBase', 'FoxPro'],
+            databaseLanguage: ['', 'MYSQL', 'Oracle', 'MS Access', 'dBase', 'FoxPro'],
             experience: '',
             exp: ['', '6 Months', '1 Year', '2-3 Years', '5 Years +'],
             length: '',
@@ -72,7 +72,7 @@ class DevForm extends Component {
 
     render() {
         if (this.props.shouldRedirect === true) {
-            return <Redirect to='/DevDashboard'/>
+            return <Redirect to='/DevDashboard' />
         }
         return (
             <div className="DevForm">
@@ -88,10 +88,10 @@ class DevForm extends Component {
                             <select onChange={this.handleChange} name='skill1'>
                                 {this.state.primaryLanguage.map(val => <option value={val}>{val}</option>)}
                             </select>
-                            <div>
-                            <button onClick={this.handleDecrement}>Previous</button>
-                            <button onClick={this.handleIncrement}>Next</button>
-                            
+                            <div className="Form-Buttons">
+                                <button onClick={this.handleDecrement}>Previous</button>
+                                <button onClick={this.handleIncrement}>Next</button>
+
                             </div>
                         </div>
 
@@ -101,9 +101,9 @@ class DevForm extends Component {
                                 {this.state.primaryStyle.map(val => <option value={val}>{val}</option>)}
                             </select>
                             <div>
-                            <button onClick={this.handleDecrement}>Previous</button>
-                            <button onClick={this.handleIncrement}>Next</button>
-                            
+                                <button onClick={this.handleDecrement}>Previous</button>
+                                <button onClick={this.handleIncrement}>Next</button>
+
                             </div>
                         </div>
 
@@ -113,9 +113,9 @@ class DevForm extends Component {
                                 {this.state.backendLanguage.map(val => <option value={val}>{val}</option>)}
                             </select>
                             <div>
-                            <button onClick={this.handleDecrement}>Previous</button>
-                            <button onClick={this.handleIncrement}>Next</button>
-                        
+                                <button onClick={this.handleDecrement}>Previous</button>
+                                <button onClick={this.handleIncrement}>Next</button>
+
                             </div>
                         </div>
 
@@ -125,9 +125,9 @@ class DevForm extends Component {
                                 {this.state.databaseLanguage.map(val => <option value={val}>{val}</option>)}
                             </select>
                             <div>
-                            <button onClick={this.handleDecrement}>Previous</button>
-                            <button onClick={this.handleIncrement}>Next</button>
-                            
+                                <button onClick={this.handleDecrement}>Previous</button>
+                                <button onClick={this.handleIncrement}>Next</button>
+
                             </div>
                         </div>
 
@@ -137,9 +137,9 @@ class DevForm extends Component {
                                 {this.state.exp.map(val => <option value={val}>{val}</option>)}
                             </select>
                             <div>
-                            <button onClick={this.handleDecrement}>Previous</button>
-                            <button onClick={this.handleIncrement}>Next</button>
-                            
+                                <button onClick={this.handleDecrement}>Previous</button>
+                                <button onClick={this.handleIncrement}>Next</button>
+
                             </div>
                         </div>
 
@@ -149,9 +149,9 @@ class DevForm extends Component {
                                 {this.state.lengthOfJob.map(val => <option value={val}>{val}</option>)}
                             </select>
                             <div>
-                            
-                            <button onClick={this.handleDecrement}>Previous</button>
-                            <button onClick={this.handleIncrement}>Next</button>
+
+                                <button onClick={this.handleDecrement}>Previous</button>
+                                <button onClick={this.handleIncrement}>Next</button>
                             </div>
                         </div>
                         case 7: return <div>
@@ -160,15 +160,17 @@ class DevForm extends Component {
                                 {this.state.states.map(val => <option value={val}>{val}</option>)}
                             </select>
                             <div>
-                            <button onClick={this.handleDecrement}>Previous</button>
-                            <button onClick={this.handleIncrement}>Next</button>
-                            
+                                <button onClick={this.handleDecrement}>Previous</button>
+                                <button onClick={this.handleIncrement}>Next</button>
+
                             </div>
                         </div>
 
                         case 8: return <div><h1>Enter bio</h1>
 
-                            <input className='employerInput' placeholder="Bio" name='bio' onChange={this.handleChange} placeholder="Bio"></input>
+                            <input
+                                className='employerInput' placeholder="Bio" name='bio' onChange={this.handleChange} placeholder="Bio" autoComplete="off"
+                            ></input>
                             <div>
                                 <button onClick={this.handleDecrement}>Previous</button>
                                 <button type='submit' onClick={this.handleDevFormSubmit}>Submit</button>
@@ -187,5 +189,5 @@ class DevForm extends Component {
 export default connect(state => ({
     shouldRedirect: state.devFormReducer.shouldRedirect
 }), {
-    updateDevForm, addDevForm, getEmployerBySkill
-})(DevForm)
+        updateDevForm, addDevForm, getEmployerBySkill
+    })(DevForm)

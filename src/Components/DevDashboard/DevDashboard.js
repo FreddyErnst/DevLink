@@ -13,12 +13,12 @@ class DevDashboard extends Component {
         }
     }
     componentDidMount = () => {
-        console.log("optskill", this.props.optSkill1);
+    
         if(this.props.optSkill1 !== undefined) {
-            console.log("optskill", this.props.optSkill1);
+        
             this.props.getEmployerBySkill(this.props.optSkill1.skill1)
         } else {
-            console.log("reg skill", this.props.skill1);
+    
             this.props.getEmployerBySkill(this.props.skill1)
         }
     }
@@ -36,7 +36,7 @@ class DevDashboard extends Component {
                         <Link to ='/Email'><img src= "https://1000logos.net/wp-content/uploads/2018/04/Symbol-Gmail.jpg" className="Email-Logo"/></Link>
                         <a href={val.github} target="_blank"><img src = 'https://image.flaticon.com/icons/svg/25/25231.svg' className="GitHub"/></a>
                         </div>
-                        <h3>{val.firstname} {val.lastname}</h3>
+                        <h2>{val.username}</h2>
                         <h4>{val.bio}</h4>
                         <h4>Primary Language: {val.skill1}</h4>
                         <h4>Styling: {val.skill2}</h4>
