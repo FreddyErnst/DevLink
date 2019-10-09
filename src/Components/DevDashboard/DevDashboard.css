@@ -50,7 +50,7 @@ Div::-webkit-scrollbar {
     width: 35vw;
     border: .5px white solid;
     border-radius: 3%;
-    margin-left: 16px;
+    margin-left: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +80,7 @@ Div::-webkit-scrollbar {
 }
 
 .Dash-Header, .dash-Header {
-    margin-left: 22px;
+    margin-left: 18px;
 }
 
 .EmployerPost, .dash-Header, .Dash-Header, .DevPost{
