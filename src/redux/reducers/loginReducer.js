@@ -15,16 +15,6 @@ const DELETE_EMPLOYER_ACCOUNT = "DELETE_EMPLOYER_ACCOUNT"
 const GET_DEV = "GET_DEVELOPER"
 const GET_EMPLOYER = "GET_EMPLOYER"
 
-// const ADD_PROFILE_PICTURE = "ADD_PROFILE_PICTURE"
-
-
-// export function addProfilePicture(developer) {
-//     Axios.post('/api/developer/picture')
-//     return {
-//         type: ADD_PROFILE_PICTURE,
-//         payload: developer
-//     }
-// }
 export function updateDeveloper(developer) {
     return {
         type: UPDATE_DEVELOPER,
@@ -67,71 +57,71 @@ export function logOutEmployer() {
     Axios.post('/auth/logoutEmployer')
     return {
         type: LOGOUT_EMPLOYER,
-        
+
     }
 }
-export function deleteDeveloperAccount () {
+export function deleteDeveloperAccount() {
     return {
         type: DELETE_DEVELOPER_ACCOUNT,
         payload: Axios.delete('/auth/developer')
     }
 }
 
-export function deleteEmployerAccount () {
+export function deleteEmployerAccount() {
     return {
         type: DELETE_EMPLOYER_ACCOUNT,
         payload: Axios.delete('/auth/employer')
     }
 }
 
-export default function reducer (state=initialState, action) {
-   
-    switch(action.type) {
-        case UPDATE_DEVELOPER: 
+export default function reducer(state = initialState, action) {
+
+    switch (action.type) {
+        case UPDATE_DEVELOPER:
             return {
                 ...state,
                 developer: action.payload
             }
-        
-        case UPDATE_EMPLOYER: 
+
+        case UPDATE_EMPLOYER:
             return {
                 ...state,
                 employer: action.payload
             }
-        
-        case LOGOUT_DEV: 
+
+        case LOGOUT_DEV:
             return {
                 ...state,
                 developer: {}
             }
-        
-        case LOGOUT_EMPLOYER: 
+
+        case LOGOUT_EMPLOYER:
             return {
                 ...state,
                 employer: {}
             }
-            case `${DELETE_DEVELOPER_ACCOUNT}_FULFILLED`: 
+        case `${DELETE_DEVELOPER_ACCOUNT}_FULFILLED`:
             return {
                 ...state,
                 developer: {}
-                
+
             }
-            case `${DELETE_EMPLOYER_ACCOUNT}_FULFILLED`: 
+        case `${DELETE_EMPLOYER_ACCOUNT}_FULFILLED`:
             return {
                 ...state,
                 employer: {}
             }
 
-            case `${GET_DEV}_FULFILLED`:
-                return {
-                    ...state,
-                    developer: action.payload.data
-                }
-            case `${GET_EMPLOYER}_FULFILLED`:
-                return {
-                    ...state,
-                    employer: action.payload.data
-                }
+        case `${GET_DEV}_FULFILLED`:
+            return {
+                ...state,
+                developer: action.payload.data
+            }
+        case `${GET_EMPLOYER}_FULFILLED`:
+            return {
+                ...state,
+                employer: action.payload.data
+            }
         default: return state;
     }
 }

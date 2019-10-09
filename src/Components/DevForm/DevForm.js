@@ -35,7 +35,7 @@ class DevForm extends Component {
 
     handleDevFormSubmit = () => {
         this.props.addDevForm(this.state)
-        // console.log(this.state.skill1)
+
         this.props.getEmployerBySkill(this.state.skill1)
         this.setState({
             didClick: true

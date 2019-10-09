@@ -57,11 +57,7 @@ class EmployerProfile extends Component {
                 employer: response.data
             })
         })
-        // Axios.get('/api/employer/pic').then((response) => {
-        //     this.setState({
-        //         employerPicture: response.data
-        //     })
-        // })
+    
 
     }
     editEmployerUsername = () => {
